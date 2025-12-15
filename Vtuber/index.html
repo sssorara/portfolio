@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tachibana Mirai</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- Tailwind CSS 完成版を読み込む -->
+    <link rel="stylesheet" href="output.css" />
+  </head>
+
+  <body class="bg-dark-bg min-h-screen flex flex-col relative">
+    <!-- Background Grid -->
+    <div
+      class="fixed inset-0 z-0 bg-grid-pattern bg-grid opacity-20 pointer-events-none"
+    ></div>
+
+    <!-- Navigation -->
+    <header
+      class="fixed top-0 w-full z-50 bg-glass backdrop-blur-md border-b border-neon-orange/30"
+    >
+      <div
+        class="container mx-auto px-4 py-4 flex justify-between items-center"
+      >
+        <div
+          class="text-2xl font-future font-bold text-neon-orange tracking-wider cursor-pointer"
+          onclick="navigateTo('home')"
+        >
+          VTUBER<span class="text-white">MIRAI</span>
+        </div>
+
+        <!-- Desktop Menu -->
+        <nav
+          class="hidden md:flex space-x-8 text-sm font-bold font-future tracking-widest"
+        >
+          <a
+            href="#about"
+            onclick="navigateTo('home', 'about')"
+            class="hover:text-neon-orange transition-colors duration-300 uppercase"
+            >Profile</a
+          >
+          <a
+            href="#updates"
+            onclick="navigateTo('home', 'updates')"
+            class="hover:text-neon-orange transition-colors duration-300 uppercase"
+            >Updates</a
+          >
+          <a
+            href="#schedule"
+            onclick="navigateTo('home', 'schedule')"
+            class="hover:text-neon-orange transition-colors duration-300 uppercase"
+            >Schedule</a
+          >
+          <button
+            onclick="navigateTo('news')"
+            class="hover:text-neon-orange transition-colors duration-300 uppercase"
+          >
+            NEWS
+          </button>
+          <button
+            onclick="navigateTo('contact')"
+            class="hover:text-neon-orange transition-colors duration-300 uppercase"
+          >
+            Contact
+          </button>
+        </nav>
+
+        <!-- Mobile Menu Button -->
+        <button
+          class="md:hidden text-white hover:text-neon-orange"
+          onclick="toggleMobileMenu()"
+        >
+          <svg
+            class="w-8 h-8"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            ></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Menu Dropdown -->
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-black border-t border-neon-orange/30 absolute w-full"
+      >
+        <div class="flex flex-col p-4 space-y-4 font-future text-center">
+          <a
+            href="#about"
+            onclick="navigateTo('home', 'about'); toggleMobileMenu()"
+            class="block py-2 hover:text-neon-orange"
+            >PROFILE</a
+          >
+          <a
+            href="#updates"
+            onclick="navigateTo('home', 'updates'); toggleMobileMenu()"
+            class="block py-2 hover:text-neon-orange"
+            >UPDATES</a
+          >
+          <button
+            onclick="navigateTo('news'); toggleMobileMenu()"
+            class="block py-2 hover:text-neon-orange"
+          >
+            NEWS
+          </button>
+          <button
+            onclick="navigateTo('contact'); toggleMobileMenu()"
+            class="block py-2 hover:text-neon-orange"
+          >
+            CONTACT
+          </button>
+          <button
+            onclick="navigateTo('terms'); toggleMobileMenu()"
+            class="block py-2 hover:text-neon-orange"
+          >
+            TERMS
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow z-10 pt-20">
+      <!-- HOME PAGE VIEW -->
+      <div id="home-view" class="page-section active">
+        <!-- Hero Section -->
+        <section
+          class="MAIN_VISUAL1"
+          style="position: relative; width: 100%; height: 500px"
+        >
+          <video
+            src="img/mainvideo.mp4"
+            autoplay
+            muted
+            loop
+            playsinline
+            style="width: 100%; height: 100%; object-fit: cover"
+            class="main-img"
+          ></video>
+
+          <div class="main-txt">
+            <p
+              style="
+                font-size: 4rem;
+                margin: 0;
+                font-family: 'Yu Mincho', 'MS Mincho', serif;
+              "
+            >
+              橘　未来
+            </p>
+          </div>
+          <p
+            style="
+              position: absolute;
+              bottom: 10px;
+              right: 20px;
+              color: white;
+              opacity: 0.7;
+              font-size: 0.8rem;
+              z-index: 10;
+            "
+          >
+            ※このサイトは生成AI画像を使用しています
+          </p>
+        </section>
+
+        <section
+          class="relative min-h-[90vh] flex items-center justify-center overflow-hidden fade-in-up py-20"
+        >
+          <!-- Decorative Elements -->
+          <div
+            class="absolute top-1/4 left-10 w-24 h-24 border-t-2 border-l-2 border-neon-orange opacity-50"
+          ></div>
+          <div
+            class="absolute bottom-1/4 right-10 w-24 h-24 border-b-2 border-r-2 border-neon-orange opacity-50"
+          ></div>
+
+          <div
+            class="container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center"
+          >
+            <!-- Text/Logo Area -->
+            <div class="order-2 md:order-1 text-center md:text-left">
+              <h2
+                class="text-neon-orange font-future text-xl tracking-[0.5em] mb-4"
+              >
+                VIRTUAL EXISTENCE
+              </h2>
+              <!-- Name Logo Placeholder -->
+              <div class="mb-8">
+                <img
+                  src="img/logo.png"
+                  alt="Official Logo"
+                  class="w-full max-w-md mx-auto md:mx-0 h-auto drop-shadow-[0_0_10px_rgba(255,140,0,0.5)]"
+                />
+              </div>
+              <p
+                class="text-gray-300 mb-8 leading-relaxed max-w-lg mx-auto md:mx-0"
+              >
+                バーチャル世界のアスリートゲーマー。<br />
+                ゲーム配信と雑談枠を中心に活動中。<br />
+                君の画面の向こう側で、いつでも対戦相手を待っている。
+              </p>
+              <div class="flex flex-wrap gap-4 justify-center md:justify-start">
+                <a
+                  href="#updates"
+                  class="px-8 py-3 bg-neon-orange text-black font-future font-bold clip-corner hover:bg-white transition-colors duration-300 shadow-neon"
+                  >LATEST NEWS</a
+                >
+                <a
+                  href="https://www.youtube.com/"
+                  target="_blank"
+                  class="px-8 py-3 border border-neon-orange text-neon-orange font-future font-bold clip-corner hover:bg-neon-orange hover:text-black transition-colors duration-300"
+                  >SUBSCRIBE</a
+                >
+              </div>
+            </div>
+
+            <!-- Main Visual Area -->
+            <div class="order-1 md:order-2 flex justify-center relative">
+              <!-- Circle Glow Behind -->
+              <div
+                class="absolute inset-0 bg-neon-orange blur-[100px] opacity-20 rounded-full transform scale-75"
+              ></div>
+              <!-- Tachie (Character Image) Placeholder -->
+              <div
+                class="relative w-full max-w-md h-auto aspect-[3/4] md:h-[500px] md:aspect-auto bg-gradient-to-b from-gray-800 to-black border border-gray-700 flex items-center justify-center rounded-2xl overflow-hidden shadow-2xl"
+              >
+                <img src="img/kao.png" alt="" class="w-full h-full object-cover">
+
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- About & Social Section -->
+        <section
+          id="about"
+          class="py-20 bg-black/50 border-y border-gray-800 hero-bg-animated fade-in-up"
+        >
+          <div class="container mx-auto px-4">
+            <div class="flex flex-col items-center text-center">
+              <img src="img/zennsinn.png" alt="" class="Characterimg" />
+              <h2 class="text-4xl font-future font-bold text-white mb-2">
+                <span class="text-neon-orange">#</span> PROFILE
+              </h2>
+              <div class="w-20 h-1 bg-neon-orange mb-8"></div>
+
+              <div
+                class="max-w-3xl bg-card-bg p-8 rounded-lg border border-gray-800 relative clip-corner"
+              >
+                <div
+                  class="absolute -top-3 -left-3 w-6 h-6 border-t-2 border-l-2 border-neon-orange"
+                ></div>
+                <div
+                  class="absolute -bottom-3 -right-3 w-6 h-6 border-b-2 border-r-2 border-neon-orange"
+                ></div>
+
+                <h3 class="text-2xl font-bold mb-4">
+                  橘 未来 (Tachibana Mirai)
+                </h3>
+                <p class="text-gray-400 mb-8 leading-7">
+                  20XX年、電脳世界より顕現。<br />
+                  FPSゲームのランクマッチ配信と、深夜の雑談枠をメインに活動する個人勢Vtuber。<br />
+                  オレンジ色がトレードマーク。エナドリとサッカーが好き。
+                  <ul class="text-gray-400 mb-8 leading-7">
+                    <li><p>年齢: 21歳</p></li>
+                    <li><p>出身: バーチャルシティ</p></li>
+                    <li><p>趣味: エナドリ、サッカー</p></li>
+                    <li><p>好きなゲームジャンル: FPS、RPG</p></li>
+                  </ul>
+                </p>
+
+                <!-- Social Icons -->
+                <div class="flex justify-center space-x-8">
+                  <!-- YouTube -->
+                  <a
+                    href="https://www.youtube.com"
+                    target="_blank"
+                    class="group flex flex-col items-center"
+                  >
+                    <div
+                      class="w-14 h-14 bg-gray-800 rounded-full flex items-center justify-center group-hover:bg-[#FF0000] group-hover:shadow-[0_0_15px_#FF0000] transition-all duration-300"
+                    >
+                      <svg
+                        class="w-7 h-7 text-white"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"
+                        />
+                      </svg>
+                    </div>
+                    <span
+                      class="mt-2 text-xs font-future text-gray-500 group-hover:text-white"
+                      >YouTube</span
+                    >
+                  </a>
+
+                  <!-- Twitch -->
+                  <a
+                    href="https://www.twitch.tv/"
+                    target="_blank"
+                    class="group flex flex-col items-center"
+                  >
+                    <div
+                      class="w-14 h-14 bg-gray-800 rounded-full flex items-center justify-center group-hover:bg-[#9146FF] group-hover:shadow-[0_0_15px_#9146FF] transition-all duration-300"
+                    >
+                      <svg
+                        class="w-7 h-7 text-white"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M11.571 4.714h1.715v5.143H11.57zm4.715 0H18v5.143h-1.714zM6 0L1.714 4.286v15.428h5.143V24l4.286-4.286h2.998L22.285 11.429V0H6zm14.571 11.143l-3.428 3.428h-3.429l-3 3v-3H6.857V1.714h13.714v9.429z"
+                        />
+                      </svg>
+                    </div>
+                    <span
+                      class="mt-2 text-xs font-future text-gray-500 group-hover:text-white"
+                      >Twitch</span
+                    >
+                  </a>
+
+                  <!-- X (Twitter) -->
+                  <a
+                    href="https://x.com"
+                    target="_blank"
+                    class="group flex flex-col items-center"
+                  >
+                    <div
+                      class="w-14 h-14 bg-gray-800 rounded-full flex items-center justify-center group-hover:bg-black group-hover:border group-hover:border-white group-hover:shadow-[0_0_15px_#FFF] transition-all duration-300"
+                    >
+                      <svg
+                        class="w-6 h-6 text-white"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+                        />
+                      </svg>
+                    </div>
+                    <span
+                      class="mt-2 text-xs font-future text-gray-500 group-hover:text-white"
+                      >X / Twitter</span
+                    >
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Latest Updates & Videos -->
+        <section id="updates" class="py-20 relative fade-in-up">
+          <div class="container mx-auto px-4">
+            <div class="grid lg:grid-cols-2 gap-12">
+              <!-- Latest Video Column -->
+              <div>
+                <div class="flex items-center mb-8">
+                  <h2 class="text-3xl font-future font-bold mr-4">
+                    LATEST <span class="text-neon-orange">VIDEO</span>
+                  </h2>
+                  <div class="flex-grow h-px bg-gray-800"></div>
+                </div>
+
+                <!-- YouTube Embed -->
+                <div
+                  class="aspect-video bg-gray-900 rounded-xl overflow-hidden border border-neon-orange/30 shadow-neon relative group"
+                >
+                              <!-- <iframe
+                    class="w-full h-full"
+                    src="https://www.youtube.com/embed/jfKfPfyJRdk?si=template"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
+                  ></iframe> -->
+                  <img 
+                    src="img/samneil.png" 
+                    alt="Video Thumbnail" 
+                    class="w-full h-full object-cover"
+                  >
+                </div>
+                <div class="mt-4">
+                  <span
+                    class="bg-neon-orange text-black text-xs font-bold px-2 py-1 rounded"
+                    >NEW</span
+                  >
+                  <h3 class="text-xl font-bold mt-2">
+                    【初配信】はじめまして、未来です。【新人Vtuber】
+                  </h3>
+                  <p class="text-gray-500 text-sm mt-1">2024.10.15 streamed</p>
+                </div>
+              </div>
+
+              <!-- Schedule/News Column -->
+              <div id="schedule">
+                <div class="flex items-center mb-8">
+                  <h2 class="text-3xl font-future font-bold mr-4">
+                    WEEKLY <span class="text-neon-orange">SCHEDULE</span>
+                  </h2>
+                  <div class="flex-grow h-px bg-gray-800"></div>
+                </div>
+
+                <!-- Schedule Card -->
+                <div
+                  class="bg-card-bg p-6 rounded-xl border border-gray-800 mb-8 hover:border-neon-orange/50 transition-colors"
+                >
+                  <div class="space-y-4">
+                    <div class="flex items-start border-b border-gray-800 pb-3">
+                      <div class="text-neon-orange font-future font-bold w-16">
+                        MON
+                      </div>
+                      <div class="text-gray-300">21:00 - 定期歌枠</div>
+                    </div>
+                    <div class="flex items-start border-b border-gray-800 pb-3">
+                      <div class="text-neon-orange font-future font-bold w-16">
+                        WED
+                      </div>
+                      <div class="text-gray-300">22:00 - 参加型VALORANT</div>
+                    </div>
+                    <div class="flex items-start border-b border-gray-800 pb-3">
+                      <div class="text-neon-orange font-future font-bold w-16">
+                        FRI
+                      </div>
+                      <div class="text-gray-300">23:00 - ホラーゲーム実況</div>
+                    </div>
+                    <div class="flex items-start">
+                      <div class="text-neon-orange font-future font-bold w-16">
+                        SUN
+                      </div>
+                      <div class="text-gray-300">14:00 - 雑談</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flex items-center mb-8">
+                  <h2 class="text-3xl font-future font-bold mr-4">NEWS</h2>
+                  <div class="flex-grow h-px bg-gray-800"></div>
+                </div>
+
+                <!-- News List -->
+                <div class="space-y-4">
+                  <a
+                    href="news-detail-01.html"
+                    class="block bg-card-bg p-4 rounded border border-gray-800 hover:border-neon-orange transition-all hover:translate-x-2"
+                  >
+                    <div class="text-gray-500 text-xs font-future mb-1">
+                      2024.10.20
+                    </div>
+                    <div class="font-bold">グッズ販売開始のお知らせ</div>
+                  </a>
+                  <a
+                    href="#"
+                    class="block bg-card-bg p-4 rounded border border-gray-800 hover:border-neon-orange transition-all hover:translate-x-2"
+                  >
+                    <div class="text-gray-500 text-xs font-future mb-1">
+                      2024.10.18
+                    </div>
+                    <div class="font-bold">
+                      チャンネル登録者1万人達成記念配信について
+                    </div>
+                  </a>
+                </div>
+                <!-- MORE NEWS ボタン -->
+                <div class="mt-6 text-right" style="margin: 20px">
+                  <button
+                    onclick="navigateTo('news')"
+                    class="inline-block px-6 py-2 border border-neon-orange text-neon-orange font-future text-xs tracking-widest rounded clip-corner hover:bg-neon-orange hover:text-black hover:shadow-neon transition-all"
+                  >
+                    MORE NEWS
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <!-- END HOME VIEW -->
+      <!-- NEWS VIEW -->
+      <div id="news-view" class="page-section min-h-screen py-20">
+        <div class="container mx-auto px-4 max-w-4xl">
+          <!-- Close Button -->
+          <div class="flex justify-end mb-4">
+            <button
+              onclick="navigateTo('home')"
+              class="text-gray-400 hover:text-neon-orange transition-colors"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-8 w-8"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+          </div>
+          <!-- タイトル -->
+          <div class="text-center mb-12">
+            <h1 class="text-4xl font-future font-bold text-neon-orange mb-4">
+              NEWS
+            </h1>
+            <p class="text-gray-400">
+              配信スケジュール変更やグッズ情報、記念配信のお知らせなどを掲載します。
+            </p>
+          </div>
+
+          <!-- タグ / カテゴリ フィルタ風 UI（ダミー）-->
+          <div
+            class="flex flex-wrap gap-3 mb-8 justify-center text-xs font-future"
+          >
+            <button
+              type="button"
+              class="px-4 py-2 rounded-full border border-neon-orange bg-neon-orange text-black hover:bg-white hover:shadow-neon transition-all news-filter-btn"
+              data-filter="all"
+            >
+              ALL
+            </button>
+            <button
+              type="button"
+              class="px-4 py-2 rounded-full border border-gray-700 text-gray-300 hover:border-neon-orange hover:text-neon-orange transition-all news-filter-btn"
+              data-filter="info"
+            >
+              INFO
+            </button>
+            <button
+              type="button"
+              class="px-4 py-2 rounded-full border border-gray-700 text-gray-300 hover:border-neon-orange hover:text-neon-orange transition-all news-filter-btn"
+              data-filter="stream"
+            >
+              STREAM
+            </button>
+            <button
+              type="button"
+              class="px-4 py-2 rounded-full border border-gray-700 text-gray-300 hover:border-neon-orange hover:text-neon-orange transition-all news-filter-btn"
+              data-filter="goods"
+            >
+              GOODS
+            </button>
+          </div>
+
+          <!-- NEWS LIST -->
+          <div class="space-y-4">
+            <!-- 1件目 -->
+            <article
+              class="news-item bg-card-bg p-6 rounded-lg border border-gray-800 hover:border-neon-orange/70 hover:translate-x-1 transition-all clip-corner"
+              data-category="goods"
+            >
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-gray-500 text-xs font-future"
+                  >2024.10.20</span
+                >
+                <span
+                  class="text-[10px] font-future px-2 py-1 rounded bg-neon-orange text-black"
+                  >GOODS</span
+                >
+              </div>
+              <h2 class="font-bold text-lg mb-2">
+                グッズ第一弾「ORANGE FUTURE」アクリルスタンド発売決定
+              </h2>
+              <p class="text-gray-400 text-sm mb-3">
+                橘
+                未来の描き下ろしイラストを使用したアクリルスタンドが登場。予約受付は
+                11/1 20:00 より開始予定です。
+              </p>
+              <a
+                href="news-detail-01.html"
+                class="text-neon-orange text-xs font-future hover:underline"
+              >
+                詳細を見る
+              </a>
+            </article>
+
+            <!-- 2件目 -->
+            <article
+              class="news-item bg-card-bg p-6 rounded-lg border border-gray-800 hover:border-neon-orange/70 hover:translate-x-1 transition-all clip-corner"
+              data-category="stream"
+            >
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-gray-500 text-xs font-future"
+                  >2024.10.18</span
+                >
+                <span
+                  class="text-[10px] font-future px-2 py-1 rounded bg-gray-700 text-gray-200"
+                  >STREAM</span
+                >
+              </div>
+              <h2 class="font-bold text-lg mb-2">
+                チャンネル登録者1万人達成記念 24時間耐久配信のお知らせ
+              </h2>
+              <p class="text-gray-400 text-sm mb-3">
+                日頃の感謝を込めて、ゲーム・歌・雑談を詰め込んだ24時間配信を実施します。開催日時や企画内容の詳細はこちらからご確認ください。
+              </p>
+              <button
+                type="button"
+                class="text-neon-orange text-xs font-future hover:underline"
+              >
+                詳細を見る
+              </button>
+            </article>
+
+            <!-- 3件目 -->
+            <article
+              class="news-item bg-card-bg p-6 rounded-lg border border-gray-800 hover:border-neon-orange/70 hover:translate-x-1 transition-all clip-corner"
+              data-category="info"
+            >
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-gray-500 text-xs font-future"
+                  >2024.10.10</span
+                >
+                <span
+                  class="text-[10px] font-future px-2 py-1 rounded bg-gray-700 text-gray-200"
+                  >INFO</span
+                >
+              </div>
+              <h2 class="font-bold text-lg mb-2">
+                公式ハッシュタグ・切り抜きガイドラインのお知らせ
+              </h2>
+              <p class="text-gray-400 text-sm mb-3">
+                配信の感想やファンアート、切り抜き動画などに使用してほしい公式ハッシュタグと、ガイドラインを公開しました。
+              </p>
+              <button
+                type="button"
+                class="text-neon-orange text-xs font-future hover:underline"
+              >
+                詳細を見る
+              </button>
+            </article>
+          </div>
+        </div>
+      </div>
+      <!-- CONTACT VIEW -->
+      <div id="contact-view" class="page-section min-h-screen py-20">
+        <div class="container mx-auto px-4 max-w-3xl">
+          <div class="text-center mb-12">
+            <h1 class="text-4xl font-future font-bold text-neon-orange mb-4">
+              CONTACT
+            </h1>
+            <p class="text-gray-400">
+              お仕事のご依頼やコラボのお誘いはこちらからお願いします。
+            </p>
+          </div>
+
+          <form
+            class="bg-card-bg p-8 rounded-lg border border-gray-800 clip-corner shadow-lg"
+          >
+            <div class="mb-6">
+              <label
+                class="block text-neon-orange font-future text-sm mb-2"
+                for="name"
+                >NAME / HANDLE NAME</label
+              >
+              <input
+                class="w-full bg-black border border-gray-700 rounded py-3 px-4 text-white focus:outline-none focus:border-neon-orange focus:shadow-[0_0_10px_rgba(255,140,0,0.3)] transition-colors"
+                id="name"
+                type="text"
+                placeholder="お名前"
+              />
+            </div>
+            <div class="mb-6">
+              <label
+                class="block text-neon-orange font-future text-sm mb-2"
+                for="email"
+                >EMAIL ADDRESS</label
+              >
+              <input
+                class="w-full bg-black border border-gray-700 rounded py-3 px-4 text-white focus:outline-none focus:border-neon-orange transition-colors"
+                id="email"
+                type="email"
+                placeholder="example@email.com"
+              />
+            </div>
+            <div class="mb-6">
+              <label
+                class="block text-neon-orange font-future text-sm mb-2"
+                for="subject"
+                >SUBJECT</label
+              >
+              <select
+                class="w-full bg-black border border-gray-700 rounded py-3 px-4 text-white focus:outline-none focus:border-neon-orange transition-colors"
+                id="subject"
+              >
+                <option>お仕事のご依頼について</option>
+                <option>コラボについて</option>
+                <option>その他のお問い合わせ</option>
+              </select>
+            </div>
+            <div class="mb-8">
+              <label
+                class="block text-neon-orange font-future text-sm mb-2"
+                for="message"
+                >MESSAGE</label
+              >
+              <textarea
+                class="w-full bg-black border border-gray-700 rounded py-3 px-4 text-white focus:outline-none focus:border-neon-orange transition-colors h-40"
+                id="message"
+                placeholder="お問い合わせ内容をご記入ください"
+              ></textarea>
+            </div>
+
+            <button
+              type="button"
+              class="w-full bg-neon-orange text-black font-future font-bold py-4 rounded clip-corner hover:bg-white hover:shadow-neon transition-all duration-300"
+            >
+              SEND MESSAGE
+            </button>
+          </form>
+        </div>
+      </div>
+      <!-- END CONTACT VIEW -->
+
+      <!-- TERMS VIEW -->
+      <div id="terms-view" class="page-section min-h-screen py-20">
+        <div class="container mx-auto px-4 max-w-4xl">
+          <div class="text-center mb-12">
+            <h1 class="text-4xl font-future font-bold text-neon-orange mb-4">
+              TERMS OF SERVICE
+            </h1>
+            <p class="text-gray-400">
+              二次創作・切り抜き動画に関するガイドライン
+            </p>
+          </div>
+
+          <div
+            class="bg-card-bg p-8 md:p-12 rounded-lg border border-gray-800 space-y-10"
+          >
+            <!-- Section 1 -->
+            <div>
+              <h3
+                class="text-xl font-bold border-l-4 border-neon-orange pl-4 mb-4"
+              >
+                1. 二次創作について
+              </h3>
+              <p class="text-gray-400 leading-7">
+                「橘
+                未来」を題材としたイラスト、漫画、小説などの二次創作活動を歓迎いたします。<br />
+                ハッシュタグ
+                <span class="text-neon-orange">#MiraiArt</span>
+                をつけて投稿していただければ、活動に使用させていただく場合がございます（サムネイル、SNS等）。<br />
+                <span class="text-sm text-gray-500"
+                  >※R-18（性的・暴力的）な表現を含む作品は、専用のハッシュタグを使用し、ゾーニングを行ってください。</span
+                >
+              </p>
+            </div>
+
+            <!-- Section 2 -->
+            <div>
+              <h3
+                class="text-xl font-bold border-l-4 border-neon-orange pl-4 mb-4"
+              >
+                2. 切り抜き動画について
+              </h3>
+              <p class="text-gray-400 leading-7">
+                配信の切り抜き動画の作成・公開は自由に行っていただけます。<br />
+                ただし、以下の条件をお守りください。
+              </p>
+              <ul
+                class="list-disc list-inside mt-4 text-gray-400 space-y-2 ml-4"
+              >
+                <li>元動画のURLを概要欄に記載すること</li>
+                <li>
+                  悪意のある編集、誤解を招くようなタイトル付けを行わないこと
+                </li>
+                <li>メンバーシップ限定配信(メン限)の切り抜きは禁止です</li>
+                <li>
+                  収益化については、各プラットフォームの規約に従ってください
+                </li>
+              </ul>
+            </div>
+
+            <!-- Section 3 -->
+            <div>
+              <h3
+                class="text-xl font-bold border-l-4 border-neon-orange pl-4 mb-4"
+              >
+                3. 禁止事項
+              </h3>
+              <p class="text-gray-400 leading-7">
+                以下の行為は固く禁止いたします。
+              </p>
+              <ul
+                class="list-disc list-inside mt-4 text-gray-400 space-y-2 ml-4"
+              >
+                <li>公式と誤認させるような振る舞い</li>
+                <li>公序良俗に反する活動への利用</li>
+                <li>他者を攻撃する目的での利用</li>
+                <li>素材(立ち絵、ロゴ等)の無断加工・再配布・販売</li>
+              </ul>
+            </div>
+
+            <div
+              class="mt-8 pt-8 border-t border-gray-700 text-center text-sm text-gray-500"
+            >
+              本ガイドラインは予告なく変更される場合があります。<br />
+              最終更新日: 2025年10月1日
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- END TERMS VIEW -->
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black border-t border-gray-800 py-12 z-10 relative">
+      <div
+        class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center"
+      >
+        <div class="mb-6 md:mb-0">
+          <div class="text-2xl font-future font-bold text-white mb-2">
+            VTUBER<span class="text-neon-orange">MIRAI</span>
+          </div>
+          <div class="flex space-x-6 text-sm text-gray-500">
+            <button onclick="navigateTo('home')" class="hover:text-neon-orange">
+              HOME
+            </button>
+            <button onclick="navigateTo('news')" class="hover:text-neon-orange">
+              NEWS
+            </button>
+            <button
+              onclick="navigateTo('terms')"
+              class="hover:text-neon-orange"
+            >
+              TERMS
+            </button>
+            <button
+              onclick="navigateTo('contact')"
+              class="hover:text-neon-orange"
+            >
+              CONTACT
+            </button>
+          </div>
+        </div>
+        <div class="text-gray-600 text-sm font-future">
+          &copy; 2024 Tachibana Mirai. All rights reserved.
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
+  </body>
+</html>

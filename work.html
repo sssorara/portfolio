@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SORA PORTFOLIO</title>
+    <!-- 「>」の後ろに文字・スペースなど無いか注意 -->
+    <meta name="description" content="ポートフォリオサイトです" />
+    <meta name="keywords" content="キーワード,３つ,決められる" />
+    <meta name="format-detection" content="email=no,telephone=no,address=no" />
+    <!-- メアド・電話番号・住所を拾わせない -->
+    <meta name="robots" content="noindex,nofollow" />
+    <!-- クローラー(インデックス)拒否 -->
+    <link rel="icon" href="img/favicon (2).ico" />
+    <!-- <link rel="stylesheet" href="css/リセットcss"> -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/work.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet"> -->
+  </head>
+
+  <body>
+    <!-- ローディング画面 -->
+    <div class="lording">
+      <div id="splash">
+        <div id="splash_text"></div>
+        <div class="loader_cover loader_cover-up"></div>
+        <!--上に上がるエリア-->
+        <div class="loader_cover loader_cover-down"></div>
+        <!--下に下がるエリア-->
+        <!--/splash-->
+      </div>
+    </div>
+    <!-- メニュー -->
+    <div class="line"></div>
+    <header>
+      <div class="pc-menu">
+        <nav>
+          <ul>
+            <li li><a href="profile.html">PROFILE</a></li>
+            <li><a href="work.html">WORK</a></li>
+            <li><a href="blog.html">BLOG</a></li>
+            <li><a href="galally.html">GALLERY</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <button type="button" class="ham-btn">
+      <span class="ham-line"></span>
+    </button>
+    <!-- スマホメニュー -->
+    <div class="sp-menu">
+      <nav>
+        <ul>
+          <li><a href="profile.html">PROFILE</a></li>
+          <li><a href="work.html">WORK</a></li>
+          <li><a href="blog.html">BLOG</a></li>
+          <li><a href="galally.html">GALLERY</a></li>
+        </ul>
+      </nav>
+    </div>
+    <!-- ワークタイトル -->
+    <div class="work-anime-box">
+      <div class="animated h1">
+        <h1>WORK</h1>
+      </div>
+    </div>
+
+    <main>
+      <section id="website-popup">
+        <h3>WEB-SITE</h3>
+        <div class="popup-wrapper">
+          <!-- パソコンスクール -->
+          <li class="popup-box popup-box1">
+            <input type="checkbox" class="popup" id="popup1" />
+            <label for="popup1">
+              <div class="img-box sam-a"></div>
+            </label>
+            <!-- ポップアップ部分 -->
+            <div class="overlay">
+              <div class="window">
+                <!-- ウィンドウ部分 -->
+                <label for="popup1" class="close-icon">×</label>
+                <div class="popup-content">
+                  <!-- ウィンドウのコンテンツ -->
+                  <div class="window-img window-img1"></div>
+                  <p class="window-sitename">パソコンスクール(架空)</p>
+                  <ul class="content-txt">
+                    <li>
+                      <strong>担当部分</strong>
+                      <p>コーディング/デザイン</p>
+                    </li>
+                    <li>
+                      <strong>制作時間</strong>
+                      <p>9日</p>
+                    </li>
+                    <li>
+                      <strong>コンセプト・ターゲット</strong>
+                      <p>
+                        メインターゲットは働きながら通えるパソコンスクール。
+                      </p>
+                      <p>
+                        25~50代をターゲットに地方スクールを想定して制作しました。
+                      </p>
+                      <p>青系をメインカラーに制作しています。</p>
+                    </li>
+                    <li>
+                      <strong>コメント</strong>
+                      <p>働きながら通えるパソコンスクールを想定しているので</p>
+                      <p>
+                        簡潔で見やすく忙しい中でも情報が得られるサイトを目指しました。
+                      </p>
+                      <p>
+                        差し色には蛍光色の黄緑色を使用してメリハリをつけています。
+                      </p>
+                    </li>
+                    <li>
+                      <strong>リンク</strong>
+                      <a href="pc-school/index.html" target="_blank">リンク</a>
+                    </li>
+                  </ul>
+                  <label for="popup1">
+                    <div class="close-butn">CLOSE</div>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <p class="site-name">パソコンスクール(架空)</p>
+          </li>
+
+          <!-- ポートフォリオ -->
+          <li class="popup-box popup-box2">
+            <input type="checkbox" class="popup" id="popup2" />
+            <label for="popup2">
+              <div class="img-box sam-b"></div>
+            </label>
+            <!-- ポップアップ部分 -->
+            <div class="overlay">
+              <div class="window">
+                <!-- ウィンドウ部分 -->
+                <label for="popup2" class="close-icon">×</label>
+                <div class="popup-content">
+                  <!-- ウィンドウのコンテンツ -->
+                  <div class="window-img window-img2"></div>
+                  <p class="window-sitename">ポートフォリオサイト</p>
+                  <ul class="content-txt">
+                    <li>
+                      <strong>担当部分</strong>
+                      <p>コーディング/デザイン</p>
+                    </li>
+                    <li>
+                      <strong>制作時間</strong>
+                      <p>9日</p>
+                    </li>
+                    <li>
+                      <strong>コンセプト・ターゲット</strong>
+                      <p>
+                        大学時代の作品をメインに就職に向けたスキルやデザインが伝わるサイトを目指しました。
+                      </p>
+                      <p>
+                        モノクロでシンプルさを意識しながらデザインのダイナミックさが特徴です。
+                      </p>
+                    </li>
+                    <li>
+                      <strong>コメント</strong>
+                      <p>
+                        GALLERY部分は大学時代の作品を美術館のように横スクロールに挑戦してみました。
+                      </p>
+                      <p>
+                        追尾するマウスカーソルと自作のポインターはお気に入りの一つです。
+                      </p>
+                    </li>
+                    <li>
+                      <strong>リンク</strong>
+                      <a href="index.html">リンク</a>
+                    </li>
+                  </ul>
+                  <label for="popup2">
+                    <div class="close-butn">CLOSE</div>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <p class="site-name">ポートフォリオサイト</p>
+          </li>
+
+          <!-- Aiコーディング１ -->
+          <li class="popup-box popup-box3">
+            <input type="checkbox" class="popup" id="popup3" />
+            <label for="popup3">
+              <div class="img-box sam-c"></div>
+            </label>
+            <!-- ポップアップ部分 -->
+            <div class="overlay">
+              <div class="window">
+                <!-- ウィンドウ部分 -->
+                <label for="popup3" class="close-icon">×</label>
+                <div class="popup-content">
+                  <!-- ウィンドウのコンテンツ -->
+                  <div class="window-img window-img3"></div>
+                  <p class="window-sitename">Aiコーディングサイト</p>
+                  <ul class="content-txt">
+                    <li>
+                      <strong>担当部分</strong>
+                      <p>コーディング/デザイン</p>
+                    </li>
+                    <li>
+                      <strong>制作時間</strong>
+                      <p>1日</p>
+                    </li>
+                    <li>
+                      <strong>コンセプト・ターゲット</strong>
+                      <p>AIを使った初めてのAIコーディングに挑戦してみました</p>
+                    </li>
+                    <li>
+                      <strong>コメント</strong>
+                      <p>
+                        AIのみでしたので他AIツールを使用したり、デザインは自分で考えたりAIでもっと作業効率を上げていきたいと思える機能性でした
+                      </p>
+                    </li>
+                    <li>
+                      <strong>リンク</strong>
+                      <a href="ai-test/index.html" target="_blank">リンク</a>
+                    </li>
+                  </ul>
+                  <label for="popup3">
+                    <div class="close-butn">CLOSE</div>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <p class="site-name">Aiコーディングサイト</p>
+          </li>
+
+          <!-- Vtuber -->
+          <li class="popup-box popup-box4">
+            <input type="checkbox" class="popup" id="popup4" />
+            <label for="popup4">
+              <div class="img-box sam-d"></div>
+            </label>
+            <!-- ポップアップ部分 -->
+            <div class="overlay">
+              <div class="window">
+                <!-- ウィンドウ部分 -->
+                <label for="popup4" class="close-icon">×</label>
+                <div class="popup-content">
+                  <!-- ウィンドウのコンテンツ -->
+                  <div class="window-img window-img4"></div>
+                  <p class="window-sitename">VTuber 橘　未来</p>
+                  <ul class="content-txt">
+                    <li>
+                      <strong>担当部分</strong>
+                      <p>コーディング/デザイン</p>
+                    </li>
+                    <li>
+                      <strong>制作時間</strong>
+                      <p>4日</p>
+                    </li>
+                    <li>
+                      <strong>コンセプト・ターゲット</strong>
+                      <p>AIと共に作成したVtuber個人サイト</p>
+                    </li>
+                    <li>
+                      <strong>コメント</strong>
+                      <p>
+                        AIと共に作成したVtuber個人サイトです。<br>  
+                        キャラクターデザイン、キャラクター設定、サイトデザインは自分で考えメインビジュアルなどはAI生成しました。<br>
+                        コーディングはAIと共に修正していき、WordPressにも対応しています。<br>
+                        愛着のあるキャラクターになりました。
+                      </p>
+                    </li>
+                    <li>
+                      <strong>リンク</strong>
+                      <a href="vtuber/index.html" target="_blank">リンク</a>
+                    </li>
+                  </ul>
+                  <label for="popup4">
+                    <div class="close-butn">CLOSE</div>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <p class="site-name">VTuber 橘未来</p>
+          </li>
+        </div>
+      </section>
+
+      <section id="art-popup">
+        <h3>ART-WORK</h3>
+        <div class="popup-wrapper">
+          <!-- ワーキングホリデー -->
+          <li class="popup-box popup-box1">
+            <input type="checkbox" class="popup" id="aw-popup-a" />
+            <label for="aw-popup-a">
+              <div class="img-box aw-sam-a"></div>
+            </label>
+            <!-- ポップアップ部分 -->
+            <div class="overlay">
+              <div class="window">
+                <!-- ウィンドウ部分 -->
+                <label for="aw-popup-a" class="close-icon">×</label>
+                <div class="popup-content">
+                  <!-- ウィンドウのコンテンツ -->
+                  <div class="window-img aw-window-img1"></div>
+                  <p class="window-sitename">ワーキングホリデー(架空)</p>
+                  <ul class="content-txt">
+                    <li>
+                      <strong>担当部分</strong>
+                      <p>デザイン</p>
+                    </li>
+                    <li>
+                      <strong>制作時間</strong>
+                      <p>1日</p>
+                    </li>
+                    <li>
+                      <strong>コンセプト・ターゲット</strong>
+                      <p>
+                        大学生から若手社会人に向けて、「卒業したらすぐ就職」「仕事に疲れたから休職・転職」という限られた選択肢の中に、「ワーキングホリデー」という選択肢を提案するバナー
+                      </p>
+                      <p>ターゲット層は大学生から20代の社会人</p>
+                      <p>Instagramの広告用</p>
+                    </li>
+                    <li>
+                      <strong>コメント</strong>
+                      <p>
+                        メッセージ性を強調させるためにシンプルな素材を使用しました。
+                      </p>
+                    </li>
+                  </ul>
+                  <label for="aw-popup-a">
+                    <div class="close-butn">CLOSE</div>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <p class="site-name">ワーキングホリデー(架空)</p>
+          </li>
+
+          <!-- プログラミングスクール -->
+          <li class="popup-box popup-box2">
+            <input type="checkbox" class="popup" id="aw-popup-b" />
+            <label for="aw-popup-b">
+              <div class="img-box aw-sam-b"></div>
+            </label>
+            <!-- ポップアップ部分 -->
+            <div class="overlay">
+              <div class="window">
+                <!-- ウィンドウ部分 -->
+                <label for="aw-popup-b" class="close-icon">×</label>
+                <div class="popup-content">
+                  <!-- ウィンドウのコンテンツ -->
+                  <div class="window-img aw-window-img2"></div>
+                  <p class="window-sitename">プログラミングスクール(架空)</p>
+                  <ul class="content-txt">
+                    <li>
+                      <strong>担当部分</strong>
+                      <p>デザイン</p>
+                    </li>
+                    <li>
+                      <strong>制作時間</strong>
+                      <p>一日</p>
+                    </li>
+                    <li>
+                      <strong>コンセプト・ターゲット</strong>
+                      <p>春に開催される子供向けプログラミングスクールの広告</p>
+                    </li>
+                    <li>
+                      <strong>コメント</strong>
+                      <p>子供向け春のプログラミングスクールということで</p>
+                      <p>春らしい色やあしらいを意識しました。</p>
+                    </li>
+                  </ul>
+                  <label for="aw-popup-b">
+                    <div class="close-butn">CLOSE</div>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <p class="site-name">プログラミングスクール(架空)</p>
+          </li>
+
+          <!-- ペットショップ -->
+          <li class="popup-box popup-box3">
+            <input type="checkbox" class="popup" id="aw-popup-c" />
+            <label for="aw-popup-c">
+              <div class="img-box aw-sam-c"></div>
+            </label>
+            <!-- ポップアップ部分 -->
+            <div class="overlay">
+              <div class="window">
+                <!-- ウィンドウ部分 -->
+                <label for="aw-popup-c" class="close-icon">×</label>
+                <div class="popup-content">
+                  <!-- ウィンドウのコンテンツ -->
+                  <div class="window-img aw-window-img3"></div>
+                  <p class="window-sitename">ペットショップ広告(架空)</p>
+                  <ul class="content-txt">
+                    <li>
+                      <strong>担当部分</strong>
+                      <p>デザイン</p>
+                    </li>
+                    <li>
+                      <strong>制作時間</strong>
+                      <p>2日</p>
+                    </li>
+                    <li>
+                      <strong>コンセプト・ターゲット</strong>
+                      <p>ターゲット層は子供のいるファミリー</p>
+                      <p>来店を呼びかける為のバーナー作成</p>
+                      <p>必ずキャッチコピーを入れる事</p>
+                    </li>
+                    <li>
+                      <strong>コメント</strong>
+                      <p>
+                        子供のいるファミリー向けということで子供の目にまず入るようなデザインにしました。
+                      </p>
+                      <p>
+                        「ワンちゃんネコちゃん大集合」というキャッチコピーは品揃えのよいペットショップの強みを意識して作りました。
+                      </p>
+                    </li>
+                  </ul>
+                  <label for="aw-popup-c">
+                    <div class="close-butn">CLOSE</div>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <p class="site-name">ペットショップ広告(架空)</p>
+          </li>
+
+          <!-- アート１ -->
+          <li class="popup-box popup-box4">
+            <input type="checkbox" class="popup" id="aw-popup-d" />
+            <label for="aw-popup-d">
+              <div class="img-box aw-sam-d"></div>
+            </label>
+            <!-- ポップアップ部分 -->
+            <div class="overlay">
+              <div class="window">
+                <!-- ウィンドウ部分 -->
+                <label for="aw-popup-d" class="close-icon">×</label>
+                <div class="popup-content">
+                  <!-- ウィンドウのコンテンツ -->
+                  <div class="window-img aw-window-img4"></div>
+                  <p class="window-sitename">モデルイラスト</p>
+                  <ul class="content-txt">
+                    <li>
+                      <strong>担当部分</strong>
+                      <p>イラスト</p>
+                    </li>
+                    <li>
+                      <strong>制作時間</strong>
+                      <p>7日</p>
+                    </li>
+                    <li>
+                      <strong>コンセプト・ターゲット</strong>
+                      <p>
+                        SNSで活動する男性二人組のイラスト制作を担当しました。
+                      </p>
+                      <p>主にアイコンや動画の挿絵やキャラクターに使用予定</p>
+                    </li>
+                    <li>
+                      <strong>コメント</strong>
+                      <p>
+                        お二人が服が好きということでお気に入りの服で制作させていただきました。
+                      </p>
+                      <p>
+                        キャラクターではなく実在する人なので単色でシンプルに書き上げました。
+                      </p>
+                    </li>
+                  </ul>
+                  <label for="aw-popup-d">
+                    <div class="close-butn">CLOSE</div>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <p class="site-name">モデルイラスト</p>
+          </li>
+
+          <!-- シャルムロゴ -->
+          <li class="popup-box popup-box5">
+            <input type="checkbox" class="popup" id="aw-popup-e" />
+            <label for="aw-popup-e">
+              <div class="img-box aw-sam-e"></div>
+            </label>
+            <!-- ポップアップ部分 -->
+            <div class="overlay">
+              <div class="window">
+                <!-- ウィンドウ部分 -->
+                <label for="aw-popup-e" class="close-icon">×</label>
+                <div class="popup-content">
+                  <!-- ウィンドウのコンテンツ -->
+                  <div class="window-img aw-window-img5"></div>
+                  <p class="window-sitename">株式会社シャルム　ロゴ</p>
+                  <ul class="content-txt">
+                    <li>
+                      <strong>担当部分</strong>
+                      <p>ロゴデザイン</p>
+                    </li>
+                    <li>
+                      <strong>制作時間</strong>
+                      <p>2日</p>
+                    </li>
+                    <li>
+                      <strong>コンセプト・ターゲット</strong>
+                      <p>IT会社のロゴデザイン</p>
+                      <p>
+                        イメージカラーはピンク、キャッチコピーは「一緒に羽ばたこう」
+                      </p>
+                    </li>
+                    <li>
+                      <strong>コメント</strong>
+                      <p>
+                        キャッチコピーから羽や翼を連想させるロゴを制作しました
+                      </p>
+                      <p>
+                        ロゴマークとロゴタイプの組み合わせのロゴでどちらも使えるように制作しました
+                      </p>
+                    </li>
+                  </ul>
+                  <label for="aw-popup-e">
+                    <div class="close-butn">CLOSE</div>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <p class="site-name">株式会社シャルム　ロゴ</p>
+          </li>
+
+          <!-- ベルロゴ -->
+          <li class="popup-box popup-box6">
+            <input type="checkbox" class="popup" id="aw-popup-f" />
+            <label for="aw-popup-f">
+              <div class="img-box aw-sam-f"></div>
+            </label>
+            <!-- ポップアップ部分 -->
+            <div class="overlay">
+              <div class="window">
+                <!-- ウィンドウ部分 -->
+                <label for="aw-popup-f" class="close-icon">×</label>
+                <div class="popup-content">
+                  <!-- ウィンドウのコンテンツ -->
+                  <div class="window-img aw-window-img6"></div>
+                  <p class="window-sitename">株式会社ベル　ロゴ</p>
+                  <ul class="content-txt">
+                    <li>
+                      <strong>担当部分</strong>
+                      <p>ロゴデザイン</p>
+                    </li>
+                    <li>
+                      <strong>制作時間</strong>
+                      <p>2日</p>
+                    </li>
+                    <li>
+                      <strong>コンセプト・ターゲット</strong>
+                      <p>IT会社のロゴデザイン</p>
+                      <p>
+                        株式会社ベルの名前からベルマークを連想させるデザインを複数考えました
+                      </p>
+                    </li>
+                    <li>
+                      <strong>コメント</strong>
+                      <p>
+                        ベルだけではなくベルに似たスズランもモチーフに選びました
+                      </p>
+                    </li>
+                  </ul>
+                  <label for="aw-popup-f">
+                    <div class="close-butn">CLOSE</div>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <p class="site-name">株式会社ベル　ロゴ</p>
+          </li>
+        </div>
+      </section>
+
+      <section id="movie-popup">
+        <h3>MOVIE</h3>
+        <div class="popup-wrapper">
+          <!-- vlog -->
+          <li class="popup-box popup-box-a1">
+            <input type="checkbox" class="popup" id="popup-a1" />
+            <label for="popup-a1">
+              <div class="img-box sam-a1"></div>
+            </label>
+            <!-- ポップアップ部分 -->
+            <div class="overlay">
+              <div class="window">
+                <!-- ウィンドウ部分 -->
+                <label for="popup-a1" class="close-icon">×</label>
+                <div class="popup-content">
+                  <!-- ウィンドウのコンテンツ -->
+                  <div class="window-img window-img-a1"></div>
+                  <p class="window-sitename">vlog</p>
+                  <ul class="content-txt">
+                    <li>
+                      <strong>担当部分</strong>
+                      <p>撮影/編集</p>
+                    </li>
+                    <li>
+                      <strong>制作時間</strong>
+                      <p>7日</p>
+                    </li>
+                    <li>
+                      <strong>コンセプト・ターゲット</strong>
+                      <p>社内業務で作成したVlogです</p>
+                    </li>
+                    <li>
+                      <strong>コメント</strong>
+                      <p></p>
+                    </li>
+                    <li>
+                      <strong>リンク</strong>
+                      <a
+                        href="https://youtu.be/y_KEtoIOof4?si=BvwvW3YH6weK1fmK"
+                        target="_blank"
+                        >youtube</a
+                      >
+                    </li>
+                  </ul>
+                  <label for="popup-a1">
+                    <div class="close-butn">CLOSE</div>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <p class="site-name">Vlog</p>
+          </li>
+        </div>
+      </section>
+    </main>
+    <!-- マウスストーカー -->
+    <div id="stalker"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://rawgit.com/kimmobrunfeldt/progressbar.js/master/dist/progressbar.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

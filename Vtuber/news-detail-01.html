@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NEWS DETAIL</title>
+
+    <!-- Google Fonts（indexからコピペ） -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- 共通CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="output.css" />
+  </head>
+
+  <body class="bg-dark-bg min-h-screen flex flex-col relative">
+    <!-- 背景グリッド -->
+    <div
+      class="fixed inset-0 z-0 bg-grid-pattern bg-grid opacity-20 pointer-events-none"
+    ></div>
+
+    <!-- ヘッダー（シンプル版）-->
+    <header
+      class="w-full z-50 bg-glass backdrop-blur-md border-b border-neon-orange/30"
+    >
+      <div
+        class="container mx-auto px-4 py-4 flex justify-between items-center"
+      >
+        <a
+          href="index.html"
+          class="text-2xl font-future font-bold text-neon-orange tracking-wider cursor-pointer"
+        >
+          VTUBER<span class="text-white">NAME</span>
+        </a>
+        <a
+          href="index.html"
+          class="text-xs font-future tracking-widest text-gray-300 hover:text-neon-orange"
+        >
+          ← BACK TO TOP
+        </a>
+      </div>
+    </header>
+
+    <!-- MAIN -->
+    <main class="flex-grow z-10 pt-20 pb-20">
+      <div class="container mx-auto px-4 max-w-3xl">
+        <!-- 日付・カテゴリ -->
+        <div
+          class="mb-4 text-xs font-future flex items-center gap-3 text-gray-500"
+        >
+          <span>2024.10.20</span>
+          <span
+            class="px-2 py-1 rounded bg-neon-orange text-black text-[10px]"
+            style="margin: 0 10px 0 10px"
+            >GOODS</span
+          >
+        </div>
+
+        <!-- タイトル -->
+        <h1 class="text-3xl md:text-4xl font-future font-bold mb-6">
+          グッズ第一弾「ORANGE FUTURE」アクリルスタンド発売決定
+        </h1>
+
+        <!-- アイキャッチ（任意）-->
+        <div
+          class="mb-8 rounded-lg border border-gray-800 bg-card-bg overflow-hidden flex items-center justify-center h-56"
+        >
+          <span class="text-gray-600 text-sm">
+            KEY VISUAL / GOODS IMAGE HERE
+          </span>
+        </div>
+
+        <!-- 本文 -->
+        <article
+          class="bg-card-bg p-8 rounded-lg border border-gray-800 clip-corner space-y-6"
+        >
+          <p class="text-gray-300 leading-7">
+            いつも応援いただきありがとうございます。<br />
+            橘 未来の初となるオリジナルグッズとして、 「ORANGE
+            FUTURE」シリーズのアクリルスタンドの発売が決定しました。
+          </p>
+
+          <section class="txtbox">
+            <h2
+              class="text-lg font-bold mb-2 border-l-4 border-neon-orange pl-3"
+            >
+              商品情報
+            </h2>
+            <ul class="list-disc list-inside text-gray-300 space-y-1 ml-2">
+              <li>サイズ：高さ 約150mm（台座付き）</li>
+              <li>素材：アクリル</li>
+              <li>価格：2,000円（税込）</li>
+            </ul>
+          </section>
+
+          <section class="txtbox">
+            <h2
+              class="text-lg font-bold mb-2 border-l-4 border-neon-orange pl-3"
+            >
+              予約受付期間
+            </h2>
+            <p class="text-gray-300 leading-7">
+              2024年11月1日（金）20:00 〜 2024年11月14日（木）23:59
+            </p>
+          </section>
+
+          <section class="txtbox">
+            <h2
+              class="text-lg font-bold mb-2 border-l-4 border-neon-orange pl-3"
+            >
+              ご購入方法
+            </h2>
+            <p class="text-gray-300 leading-7">
+              通販サイト「〇〇BOOTH」にて受注販売を行います。<br />
+              詳細な購入ページURLは、販売開始時にX（Twitter）および配信にてお知らせします。
+            </p>
+          </section>
+        </article>
+
+        <!-- 戻るリンク -->
+        <div class="mt-8 flex justify-between items-center text-xs font-future">
+          <a
+            href="index.html"
+            class="text-gray-400 hover:text-neon-orange transition-colors"
+          >
+            ← TOPページへ戻る
+          </a>
+          <a
+            href="index.html?section=news"
+            class="text-gray-400 hover:text-neon-orange transition-colors"
+          >
+            NEWS一覧へ戻る →
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <!-- フッター（簡略）-->
+    <footer class="bg-black border-t border-gray-800 py-8 z-10 relative">
+      <div
+        class="container mx-auto px-4 text-center text-gray-600 text-xs font-future"
+      >
+        &copy; 2024 Tachibana Mirai. All rights reserved.
+      </div>
+    </footer>
+  </body>
+</html>

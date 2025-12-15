@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>申し込みフォーム</title>
+    <meta name="description" content="大阪のパソコン教室イノベーションデザイナーズアカデミーの公式サイトです。">
+    <meta name="keywords" content="パソコンスクール,パソコン教室,転職" <meta name="format-detection"
+        content="email-no,telephone=no,address-no">
+    <!-- メアド電話番号住所をbotに渡さない -->
+
+    <meta name="roboto" content="noindex,nofollow">
+    <!-- インデックス拒否 -->
+    <link rel="icon" type="image/png" sizes="32x32" HREF="img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" HREF="img/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" HREF="img/favicon-16x16.png">
+    <link rel="manifest" HREF="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="css/リセットCSS">
+    <link rel="stylesheet" href="css/page2.css">
+
+    <style>
+        /* フォーム全体のスタイル */
+        .form-container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #f9f9f9;
+        }
+
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* 各フォーム要素のスタイル */
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+        }
+
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color:#1D4876;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #1D4876;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>無料体験<br>申し込みフォーム</h2>
+    <form action="/submit" method="post">
+        <!-- 名前入力フィールド -->
+        <div class="form-group">
+            <label for="name">名前</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+
+        <!-- メールアドレス入力フィールド -->
+        <div class="form-group">
+            <label for="email">メールアドレス</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+
+        <!-- 電話番号入力フィールド -->
+        <div class="form-group">
+            <label for="phone">電話番号</label>
+            <input type="tel" id="phone" name="phone">
+        </div>
+
+        <!-- メッセージ入力フィールド -->
+        <div class="form-group">
+            <label for="message">曜日・時間</label>
+            <textarea id="message" name="message" rows="4"></textarea>
+        </div>
+
+        <!-- メッセージ入力フィールド -->
+        <div class="form-group">
+            <label for="message">その他</label>
+            <textarea id="message" name="message" rows="4"></textarea>
+        </div>
+
+        <!-- 送信ボタン -->
+        <button type="submit" class="submit-btn">送信</button>
+    </form>
+</div>
+
+</body>
+</html>

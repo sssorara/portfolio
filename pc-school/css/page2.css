@@ -1,0 +1,250 @@
+@charset "utf-8";
+
+:root {
+    font-size: 16px;
+    --base: rgb(255, 255, 255);
+    --main: #1D4876;
+    --sub: #959EAB;
+    --point: #C3F73A;
+}
+
+/* var()で呼び出せる */
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    max-width: 1920px;
+    font-family: 'Arial', sans-serif;;
+
+    font-size: 100%;
+    text-align: center;
+    margin: 0;
+}
+
+/* メニュー */
+header {
+    width: 100%;
+    height: 80px;
+    background-color: var(--main);
+    display: flex;
+    justify-content: space-around;
+    align-content: baseline;
+    margin: auto;
+}
+
+ul {
+    width: auto;
+    height: 80px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 0;
+}
+
+li {
+    list-style: none;
+    width: fit-content;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    margin: 30px;
+
+
+}
+
+li a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+}
+
+li a:hover {
+    color: rgb(0, 0, 0);
+    font-size: 14px;
+}
+
+.logo {
+    width: 80px;
+    height: 80px;
+    background-image: url(../img/1.png);
+    background-size: cover;
+    background-position: center;
+    margin-right: 5px;
+}
+
+/* メイン画像 */
+img{
+    max-width: 100%;
+    width: 100%;
+    max-height: 400px;
+    height: 50%;
+    object-fit: cover;
+    object-position: center;
+    margin: 50px 0px 50px 0px;
+
+    animation-name: fadeInAnime;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+@keyframes fadeInAnime {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+h1{
+    color: #ffffff;
+    max-width: 100%;
+    font-size: clamp(16px,1.7vw,24px);
+    display: flex;
+    align-items: center;
+
+}
+
+.br1{
+    display: none;
+}
+
+h1 a{
+        text-decoration: none;
+        color: rgb(255, 255, 255);
+    }
+
+h3 {
+    background-color: #1D4876;
+    color: #ffffff;
+    font-size: 32px;
+}
+/* 1コマ~ */
+.c_txt1{
+    font-size: clamp(20px,3.7vw,60px);
+    display: inline-block;
+    text-decoration: underline;
+    text-underline-offset:12px;
+    text-decoration-style:wavy;
+    text-decoration-color: #C3F73A;
+    margin: 50px;
+}
+
+.br1{
+    display: none;
+}
+
+/* 表 */
+table {
+    width: 80%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    margin-top: 80px;
+    margin-bottom: 80px;
+    border-radius: 5px;
+    overflow: hidden; /* 丸くした角が正しく表示されるようにする */
+    
+}
+th, td {
+    border: 3px solid var(--main); /* セルを黒い線で囲む */
+    text-align: left;
+    padding: 8px;
+    text-align: center;
+    
+    
+
+}
+th {
+    background-color: var(--sub);
+}
+
+footer {
+    max-width: 1920px;
+    height: 80px;
+    background-color: #1D4876;
+    color: rgb(255, 255, 255);
+    margin: 0 auto;
+}
+
+/* 文章 */
+.txt_1{
+    font-size: 32px;
+    line-height: 50px;
+    margin-bottom: 80px;
+}
+
+p{
+    text-decoration: underline;
+    text-underline-offset:min(10px,50%);
+    text-decoration-style:wavy;
+    text-decoration-color: #C3F73A;
+    margin: 20px;
+}
+
+image{
+margin: 0;
+}
+
+/* 1000pxからのレスポンシブ化 */
+@media screen and (max-width: 1000px) {
+    nav {
+        display: none;
+    }
+
+    header {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .menu {
+        width: 40px;
+        height: 40px;
+        background-image: url(../img/bars_24.png);
+        background-size: cover;
+        background-position: right;
+        display: flex;
+        justify-content: flex-end;
+        margin: 0;
+    }
+
+}
+
+
+/* 430pxのレスポンシブ */
+@media screen and (max-width:430px) {
+    header {
+        height: 50px;
+    }
+
+    .logo {
+        width: 50px;
+        height: 50px;
+    }
+
+    .br1{
+        display: block;
+    }
+
+    .c_txt1{
+        text-decoration: underline;
+        text-underline-offset:5px;
+        text-decoration-style:wavy;
+        text-decoration-color: #C3F73A;
+        margin: 50px;
+    }
+}
+
+@media screen and (max-width :380px) {
+body{
+    font-size: 14px;
+}
+.br1{
+    display:block;
+}
+
+}
