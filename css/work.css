@@ -300,6 +300,24 @@ strong {
   cursor: pointer;
 }
 
+@media screen and (max-width: 425px) {
+  .img-box {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .sam-a,
+  .sam-b,
+  .sam-c,
+  .sam-d {
+    width: 300px;
+    height: 300px;
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 1/1;
+  }
+} 
+
 /* =================================================================
 popup-a
 ======================================================================*/
@@ -439,23 +457,7 @@ artwork aw-popup-d
   height: 100%;
 }
 
-@media screen and (max-width: 425px) {
-  .img-box {
-    margin-left: 10px;
-    margin-right: 10px;
-  }
 
-  .sam-a,
-  .sam-b,
-  .sam-c,
-  .sam-d {
-    width: 300px;
-    height: 300px;
-    max-width: 100%;
-    height: auto;
-    aspect-ratio: 1/1;
-  }
-} 
 /* =================================================================
 artwork aw-popup-e
 ======================================================================*/
@@ -505,7 +507,20 @@ movie work popup-a1
 .window-img-a1 {
   background-image: url(../img/main_a1.png);
 }
+@media screen and (max-width: 425px) {
+  .img-box {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
 
+  .sam-a1 {
+    width: 300px;
+    height: 300px;
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 1/1;
+  }
+} 
 
 
 /* 
