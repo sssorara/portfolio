@@ -1,0 +1,119 @@
+@charset "utf-8";
+
+:root {
+	font-size: 16px;
+	--main: #333;
+	--white: #fff;
+	--img: #dadada;
+}
+/* =================================================================
+mainvisual
+======================================================================*/
+.mainvisual {
+	max-width: 100%;
+	height: 100vh;
+	margin: 0 auto;
+	position: relative;
+	/* 中の要素のための「親にrelative」 */
+	overflow: hidden;
+	/* 「.main_img」のはみ出した部分を消す */
+
+}
+
+.main_img {
+	width: 100%;
+	height: 100vh;
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	animation: anime 25s ease-in infinite;
+	transform: scale(1);
+}
+
+.main_img:nth-of-type(1) {
+	background: url(../img/main_01.jpg) center/cover;
+}
+
+.main_img:nth-of-type(2) {
+	animation-delay: 5s;
+	background: url(../img/main_02.jpg) center/cover;
+}
+
+.main_img:nth-of-type(3) {
+	animation-delay: 10s;
+	background: url(../img/main_03.jpg) bottom/cover;
+}
+
+.main_img:nth-of-type(4) {
+	animation-delay: 15s;
+	background: url(../img/main_05.jpg) center/cover;
+}
+.main_img:nth-of-type(5) {
+	animation-delay: 20s;
+	background: url(../img/sam-d.png) center/cover;
+}
+
+.main_img:nth-of-type(6) {
+	animation-delay: 25s;
+	background: url(../img/main_06.jpg) center/cover;
+
+	/* ※5枚目は下にスライドさせる */
+	/* width: 100%;
+    height: auto;
+    aspect-ratio: 1920/2427;
+    animation: up 35s ease-in infinite; */
+}
+
+@keyframes anime {
+	0% {
+		opacity: 0;
+	}
+
+	7% {
+		opacity: 1;
+	}
+
+	20% {
+		opacity: 1;
+		transform: scale(1.1);
+	}
+
+	30% {
+		opacity: 0;
+		z-index: 5;
+	}
+
+	100% {
+		opacity: 0;
+	}
+}
+
+/* ※5枚目は下にスライドさせる */
+/* @keyframes up{
+    80% {opacity: 0;}
+    87% {opacity: 1;}
+    95% {opacity: 1;}
+    100% {opacity: 0; z-index: 5; transform: translateY(-700px);}
+} */
+/*================================= */
+
+.mainvisual img {
+	position: absolute;
+	z-index: 50;
+	margin: 0 auto;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	margin: auto;
+}
+
+.filter {
+	width: 100%;
+	height: 100%;
+	z-index: 20;
+	position: absolute;
+	background-color: #000000;
+	opacity: 0.4;
+}

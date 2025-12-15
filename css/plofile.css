@@ -1,0 +1,280 @@
+@charset "utf-8";
+
+:root {
+    font-size: 16px;
+    --main: #dedede;
+    --white: #fff;
+    --img: #dadada;
+    --font:#333;
+}
+
+p{
+    color: var(--font);
+}
+
+main{
+	max-width: 95%;
+	margin: 0 auto;
+}
+
+section{
+	width: 100%;
+}
+
+ h1 {
+    color: transparent;
+    -webkit-text-stroke: 1.5px #333;
+    margin: 0 auto;
+	padding-top: 200px;
+	padding-bottom: 200px;
+
+    font-size: clamp(32px,20vw,150px);
+
+}
+
+span{display: inline-block;
+color: var(--font);}
+/* =================================================================
+ABOUT
+======================================================================*/
+
+.ABOUT {
+	padding-top: 100px;
+	display: inline-block;
+}
+
+/* =================================================================
+PROFILE
+======================================================================*/
+
+.PROFILE {
+	margin-top: 150px;
+}
+
+.PROFILE_box {
+	width: 100%;
+	height: auto;
+	background-color: var(--font);
+	margin: 0;
+	padding: 0;
+	border-radius: 20px;
+}
+
+.PROFILE-a p {
+	color:var(--white);
+}
+.PROFILE-a span{
+	display: inline-block;
+	color:var(--white);
+}
+
+.PROFILE-a {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.icon {
+	width: 200px;
+	height: 200px;
+	/* background-color: var(--img); */
+	background-image: url(../img/icon_2.jpg);
+	background-position: center;
+	background-size: cover;
+	border-radius: 25px;
+	padding: 0;
+	margin: 10px;
+}
+
+ruby {
+	display: inline-flex;
+	/* ルビをテキストと並べる */
+	flex-direction: column-reverse;
+	/* 順序を逆にして下にルビを配置 */
+	align-items: center;
+	/* ルビとテキストを中央に揃える */
+}
+
+rt {
+	font-size: 0.8em;
+	/* ルビのフォントサイズを調整 */
+	line-height: 1em;
+	/* 行の高さを通常に設定 */
+}
+
+.PROFILE-a p {
+	text-align: left;
+	line-height: 2;
+}
+
+.PROFILE-b{
+	margin-top: 20px;
+	padding-bottom:100px ;
+}
+.PROFILE-b p{
+	color: var(--white);
+
+}
+
+.PROFILE-b li{
+	margin-left: 100px;
+	text-align: left;
+	list-style: none;
+}
+
+.PROFILE-b span{
+	color: var(--white);
+	font-weight:900;
+}
+
+/* =================================================================
+SKILL
+======================================================================*/
+.skill{
+	margin: 0 auto;
+	margin-top: 160px;
+	padding-bottom: 100px;
+}
+.star5_rating {
+	position: relative;
+	z-index: 0;
+	display: inline-block;
+	white-space: nowrap;
+	color: #CCCCCC;
+	/* グレーカラー 自由に設定化 */
+	/*font-size: 30px; フォントサイズ 自由に設定化 */
+}
+
+.star5_rating:before,
+.star5_rating:after {
+	content: '★★★★★';
+}
+
+.star5_rating:after {
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+	white-space: nowrap;
+	color: #ffcf32;
+	/* イエローカラー 自由に設定化 */
+}
+
+.star5_rating[data-rate="5"]:after {
+	width: 100%;
+}
+
+/* 星5 */
+.star5_rating[data-rate="4"]:after {
+	width: 80%;
+}
+
+.skill_box{
+	width: 100%;
+	height: auto;
+	margin: 0 auto;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+
+}
+
+.skill_star_set{
+	margin: 5px;
+	display: flex;
+    justify-content: center;
+    align-items: center;
+	margin:  30px;
+	/* align-items: baseline; */
+
+}
+
+.skill_set{
+	margin-bottom: 30px;
+	margin-left: 50px;
+	margin-right: 50px;
+}
+
+.skill_box p{
+	margin: 0 auto;
+	text-align: center;
+}
+
+
+
+
+
+/* =================================================================
+CONTACT
+======================================================================*/
+.CONTACT{
+	padding-bottom: 100px;
+}
+
+.CONTACT span{
+	font-weight: bold;
+	text-decoration: underline;
+	color: #333;
+
+}
+
+.CONTACT li{
+	list-style: none;
+}
+
+.CONTACT a{
+	text-decoration: none;
+	color: #333;
+
+}
+
+
+.CONTACT a :hover{
+	color:var(--white);
+}
+
+/* =================================================================
+CONCEPT
+======================================================================*/
+.CONCEPT{
+	padding:100px 0;
+}
+/* =================================================================
+footer
+======================================================================*/
+
+footer {
+	width: 100%;
+	padding: 10px 0;
+	background-color:var(--font);
+	background-size: 100%;
+	color: var(--main);
+	text-align: center;
+	margin:auto;
+}
+
+
+
+/* =================================================================
+レスポンシブ
+======================================================================*/
+
+@media screen and (max-width : 769px) {
+
+	.PROFILE-a p{
+		text-align: center;
+	}
+
+	.PROFILE-b li{
+		margin-left: 0px;
+		text-align: center;
+	}
+
+	.skill_set{
+		margin-left: 5px;
+		margin-right: 5px;
+	}
+}
+

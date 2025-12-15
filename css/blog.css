@@ -1,0 +1,309 @@
+/* ベーススタイル - 既存サイトの雰囲気に合わせシンプルに */
+:root {
+  --bg-color: #dedede;
+  --container-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #777777;
+  --accent-color: #555555; /* 落ち着いたグレー/黒系 */
+  --hover-color: #f0f0f0;
+  --border-radius: 6px;
+
+  font-size: 16px;
+  --main: #dedede;
+  --white: #fff;
+  --img: #dadada;
+  --font: #333;
+}
+
+/* レイアウト */
+.wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: var(--text-sub);
+}
+
+/* ブログリストスタイル */
+.blog-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px;
+}
+
+.blog-item {
+  background-color: var(--container-bg);
+  border-bottom: 1px solid #eee;
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-item:hover {
+  background-color: var(
+    --text-main
+  ); /* 背景をメインテキスト色（濃いグレー）に */
+  color: #ffffff; /* 文字色を白に反転 */
+  transform: translateX(5px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* ホバー時に日付の色を明るくする */
+.blog-item:hover .post-meta {
+  color: #eeeeee;
+}
+
+.blog-item:first-child {
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
+}
+
+.blog-item:last-child {
+  border-bottom-left-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
+  border-bottom: none;
+}
+
+.post-meta {
+  font-size: 13px;
+  color: var(--text-sub);
+  margin-bottom: 5px;
+  font-family: monospace; /* 日付を見やすく */
+}
+
+.post-title-preview {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+  word-break: break-all;
+  overflow-wrap: break-word;
+}
+
+/* 記事詳細スタイル */
+#detail-view {
+  background-color: var(--container-bg);
+  padding: 40px;
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+  animation: fadeIn 0.4s ease;
+}
+
+.back-button {
+  display: inline-block;
+  margin-bottom: 20px;
+  padding: 8px 16px;
+  background-color: transparent;
+  border: 1px solid #ddd;
+  color: var(--text-sub);
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.back-button:hover {
+  background-color: var(--hover-color);
+  color: var(--text-main);
+  border-color: #ccc;
+}
+
+.detail-date {
+  color: var(--text-sub);
+  font-size: 14px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.detail-title {
+  font-size: 28px;
+  margin: 0 0 30px 0;
+  line-height: 1.4;
+}
+
+.detail-thumbnail {
+  width: 100%;
+  height: 300px; /* 固定の高さ */
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 30px;
+  background-color: #eee;
+}
+
+.detail-content {
+  font-size: 16px;
+  line-height: 1.8;
+  text-align: left;
+  padding-bottom: 20px;
+}
+
+.detail-content p {
+  margin-bottom: 20px;
+  overflow-wrap: break-word;
+}
+
+.detail-content img,
+.detail-content video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ユーティリティ */
+.hidden {
+  display: none !important;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* スマホ向け調整 */
+@media (max-width: 600px) {
+  .wrapper {
+    padding: 20px 15px;
+  }
+  .detail-content {
+    font-size: 15px; /* 少し小さく */
+  }
+  .detail-title {
+    font-size: 22px;
+  }
+  #detail-view {
+    padding: 20px;
+  }
+  .detail-thumbnail {
+    height: 200px;
+  }
+}
+/* =================================================================
+work-anime-box
+======================================================================*/
+
+.work-anime-box {
+  width: fit-content;
+  height: 50vh;
+  margin: 0 auto;
+}
+
+h1 {
+  color: transparent;
+  -webkit-text-stroke: 1.5px #333;
+  margin: 0 auto;
+  padding-top: 100px;
+  font-size: clamp(32px, 20vw, 150px);
+}
+
+.animated {
+  -webkit-animation-duration: 3s;
+  animation-duration: 3s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  animation-direction: alternate;
+  -webkit-animation-direction: alternate;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+}
+
+@-webkit-keyframes h1 {
+  from {
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-transform: translate(0px, 0px) scale(1, 1) rotate(0deg)
+      skew(0deg, 0deg);
+    opacity: 1;
+  }
+
+  to {
+    -webkit-animation-timing-function: linear;
+    -webkit-transform: translate(0px, 0px) scale(1, 1) rotate(0deg)
+      skew(0deg, 0deg);
+    opacity: 1;
+  }
+
+  10% {
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-transform: translate(0px, 0px) scale(1, 1) rotate(0deg)
+      skew(0deg, 0deg);
+    opacity: 0;
+  }
+
+  20% {
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-transform: translate(0px, 0px) scale(1, 1) rotate(0deg)
+      skew(0deg, 0deg);
+    opacity: 1;
+  }
+
+  30% {
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-transform: translate(0px, 0px) scale(1, 1) rotate(0deg)
+      skew(0deg, 0deg);
+    opacity: 0;
+  }
+
+  60% {
+    -webkit-animation-timing-function: linear;
+    -webkit-transform: translate(0px, 80px) scale(1, 1) rotate(0deg)
+      skew(0deg, 0deg);
+    opacity: 0;
+  }
+}
+
+@keyframes h1 {
+  from {
+    animation-timing-function: ease-in-out;
+    transform: translate(0px, 0px) scale(1, 1) rotate(0deg) skew(0deg, 0deg);
+    opacity: 1;
+  }
+
+  to {
+    animation-timing-function: linear;
+    transform: translate(0px, 0px) scale(1, 1) rotate(0deg) skew(0deg, 0deg);
+    opacity: 1;
+  }
+
+  10% {
+    animation-timing-function: ease-in-out;
+    transform: translate(0px, 0px) scale(1, 1) rotate(0deg) skew(0deg, 0deg);
+    opacity: 0;
+  }
+
+  20% {
+    animation-timing-function: ease-in-out;
+    transform: translate(0px, 0px) scale(1, 1) rotate(0deg) skew(0deg, 0deg);
+    opacity: 1;
+  }
+
+  30% {
+    animation-timing-function: ease-in-out;
+    transform: translate(0px, 0px) scale(1, 1) rotate(0deg) skew(0deg, 0deg);
+    opacity: 0;
+  }
+
+  60% {
+    animation-timing-function: linear;
+    transform: translate(0px, 80px) scale(1, 1) rotate(0deg) skew(0deg, 0deg);
+    opacity: 0;
+  }
+}
+
+.h1 {
+  -webkit-animation-name: h1;
+  animation-name: h1;
+  -webkit-transform-origin: center center;
+  transform-origin: center center;
+}

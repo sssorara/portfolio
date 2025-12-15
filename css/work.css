@@ -1,0 +1,501 @@
+@charset "utf-8";
+
+main {
+  max-width: 90%;
+  margin: 0 auto;
+  padding-top: 100px;
+}
+
+p {
+  line-height: 1.3;
+  font-size: 16px;
+  margin: 5px;
+}
+
+/* =================================================================
+work-anime-box
+======================================================================*/
+
+.work-anime-box {
+  width: fit-content;
+  height: 70vh;
+  margin: 0 auto;
+}
+
+h1 {
+  color: transparent;
+  -webkit-text-stroke: 1.5px #333;
+  margin: 0 auto;
+  padding-top: 200px;
+  font-size: clamp(32px, 20vw, 150px);
+}
+
+.animated {
+  -webkit-animation-duration: 3s;
+  animation-duration: 3s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  animation-direction: alternate;
+  -webkit-animation-direction: alternate;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+}
+
+@-webkit-keyframes h1 {
+  from {
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-transform: translate(0px, 0px) scale(1, 1) rotate(0deg)
+      skew(0deg, 0deg);
+    opacity: 1;
+  }
+
+  to {
+    -webkit-animation-timing-function: linear;
+    -webkit-transform: translate(0px, 0px) scale(1, 1) rotate(0deg)
+      skew(0deg, 0deg);
+    opacity: 1;
+  }
+
+  10% {
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-transform: translate(0px, 0px) scale(1, 1) rotate(0deg)
+      skew(0deg, 0deg);
+    opacity: 0;
+  }
+
+  20% {
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-transform: translate(0px, 0px) scale(1, 1) rotate(0deg)
+      skew(0deg, 0deg);
+    opacity: 1;
+  }
+
+  30% {
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-transform: translate(0px, 0px) scale(1, 1) rotate(0deg)
+      skew(0deg, 0deg);
+    opacity: 0;
+  }
+
+  60% {
+    -webkit-animation-timing-function: linear;
+    -webkit-transform: translate(0px, 80px) scale(1, 1) rotate(0deg)
+      skew(0deg, 0deg);
+    opacity: 0;
+  }
+}
+
+@keyframes h1 {
+  from {
+    animation-timing-function: ease-in-out;
+    transform: translate(0px, 0px) scale(1, 1) rotate(0deg) skew(0deg, 0deg);
+    opacity: 1;
+  }
+
+  to {
+    animation-timing-function: linear;
+    transform: translate(0px, 0px) scale(1, 1) rotate(0deg) skew(0deg, 0deg);
+    opacity: 1;
+  }
+
+  10% {
+    animation-timing-function: ease-in-out;
+    transform: translate(0px, 0px) scale(1, 1) rotate(0deg) skew(0deg, 0deg);
+    opacity: 0;
+  }
+
+  20% {
+    animation-timing-function: ease-in-out;
+    transform: translate(0px, 0px) scale(1, 1) rotate(0deg) skew(0deg, 0deg);
+    opacity: 1;
+  }
+
+  30% {
+    animation-timing-function: ease-in-out;
+    transform: translate(0px, 0px) scale(1, 1) rotate(0deg) skew(0deg, 0deg);
+    opacity: 0;
+  }
+
+  60% {
+    animation-timing-function: linear;
+    transform: translate(0px, 80px) scale(1, 1) rotate(0deg) skew(0deg, 0deg);
+    opacity: 0;
+  }
+}
+
+.h1 {
+  -webkit-animation-name: h1;
+  animation-name: h1;
+  -webkit-transform-origin: center center;
+  transform-origin: center center;
+}
+
+/* =================================================================
+popup
+======================================================================*/
+h3 {
+  font-size: 32px;
+}
+
+input {
+  display: none;
+}
+
+/* ポップアップwindow部分 */
+.overlay {
+  visibility: hidden;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 300;
+  width: 100%;
+  height: 100%;
+}
+
+/* ウィンドウ部分 */
+.window {
+  background-color: #efefef;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 80%;
+  overflow-y: scroll;
+  z-index: 500;
+  box-shadow: 0 0 0px 999px rgba(0, 0, 0, 0.5);
+}
+
+/* 閉じるボタン */
+.close-icon {
+  font-size: 50px;
+  display: flex;
+  padding-right: 10px;
+  justify-content: end;
+  cursor: pointer;
+}
+
+.popup:checked ~ .overlay {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup:checked ~ .overlay .window {
+  animation: fadein 500ms forwards;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* サムネイル */
+.img-box {
+  width: 520px;
+  height: 250px;
+  /* padding-top: 100%; */
+  /* background-color: #848484; */
+  background-position: center;
+  background-size: cover;
+  cursor: pointer;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.7);
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+.site-name {
+  text-align: center;
+}
+
+.popup-box {
+  margin: 40px;
+  width: fit-content;
+}
+
+.popup-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.content-txt {
+  margin-bottom: 20px;
+}
+
+.website-popup {
+  padding-bottom: 10%;
+}
+
+/* =================================================================
+popup中身
+======================================================================*/
+
+.window-img {
+  width: 90%;
+  height: auto;
+  margin: auto;
+  margin-top: 5px;
+  padding-top: 50%;
+  padding-left: 0;
+  padding-right: 0;
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: cover;
+}
+
+.popup-wrapper li {
+  margin: 30px 0;
+  text-align: left;
+  list-style: none;
+}
+
+.content-txt p {
+  overflow-wrap: break-word;
+  font-size: clamp(12px, 1vw, 16px);
+}
+
+strong {
+  font-size: clamp(14px, 1vw, 16px);
+}
+
+.popup-wrapper span {
+  font-weight: bold;
+}
+
+.window-sitename {
+  margin: 30px 0;
+  text-align: center;
+}
+
+.popup-wrapper a:hover {
+  color: #333;
+  cursor: pointer;
+}
+
+/* CLOSEボタン */
+.close-butn {
+  width: 80%;
+  background-color: #333;
+  color: var(--white);
+  text-align: center;
+  padding: 10px;
+  border-radius: 25px;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+/* =================================================================
+popup-a
+======================================================================*/
+
+.sam-a {
+  background-image: url(../img/sam-a.jpg);
+}
+
+.window-img1 {
+  background-image: url(../img/mokup-a.jpg);
+  color: rgba(0, 0, 0, 0.5);
+  box-shadow: 5px 5px 5px;
+}
+
+/* =================================================================
+popup-b
+======================================================================*/
+
+.sam-b {
+  background-image: url(../img/sam-b.jpg);
+}
+
+.window-img2 {
+  background-image: url(../img/mokup-b.jpg);
+  color: rgba(0, 0, 0, 0.5);
+  box-shadow: 5px 5px 5px;
+}
+
+@media screen and (max-width: 769px) {
+  .content-txt {
+    padding-left: 20px;
+  }
+}
+
+/* =================================================================
+popup-c
+======================================================================*/
+
+.sam-c {
+  background-image: url(../img/sam-c.png);
+}
+
+.window-img3 {
+  background-image: url(../img/mokup-c.png);
+  color: rgba(0, 0, 0, 0.5);
+  box-shadow: 5px 5px 5px;
+}
+
+@media screen and (max-width: 769px) {
+  .content-txt {
+    padding-left: 20px;
+  }
+}
+/* =================================================================
+popup-d
+======================================================================*/
+
+.sam-d {
+  background-image: url(../img/sam-d.png);
+}
+
+.window-img4 {
+  background-image: url(../img/mokup-d.png);
+  color: rgba(0, 0, 0, 0.5);
+  box-shadow: 5px 5px 5px;
+}
+
+@media screen and (max-width: 769px) {
+  .content-txt {
+    padding-left: 20px;
+  }
+}
+
+/* =================================================================
+artwork
+======================================================================*/
+#artwork-popup {
+  padding-top: 200px;
+}
+/* =================================================================
+artwork aw-popup-a
+======================================================================*/
+.aw-sam-a {
+  background-image: url(../img/buner-1.jpg);
+  background-position: center;
+  background-size: cover;
+  width: 300px;
+  height: 300px;
+}
+
+.aw-window-img1 {
+  background-image: url(../img/buner-1.jpg);
+  width: 50%;
+  height: 100%;
+}
+/* =================================================================
+artwork aw-popup-b
+======================================================================*/
+.aw-sam-b {
+  background-image: url(../img/buner-2.jpg);
+
+  width: 300px;
+  height: 300px;
+}
+
+.aw-window-img2 {
+  background-image: url(../img/buner-2.jpg);
+  width: 50%;
+  height: 100%;
+}
+/* =================================================================
+artwork aw-popup-c
+======================================================================*/
+.aw-sam-c {
+  background-image: url(../img/buner-3.jpg);
+  width: 300px;
+  height: 300px;
+}
+
+.aw-window-img3 {
+  background-image: url(../img/buner-3.jpg);
+  background-size: 90%;
+  background-position: center;
+}
+/* =================================================================
+artwork aw-popup-d
+======================================================================*/
+.aw-sam-d {
+  background-image: url(../img/art-1.jpg);
+  width: 300px;
+  height: 300px;
+}
+
+.aw-window-img4 {
+  background-image: url(../img/art-1.jpg);
+  width: 50%;
+  height: 100%;
+}
+
+@media screen and (max-width: 425px) {
+  .img-box {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .sam-a,
+  .sam-b {
+    width: 300px;
+    height: 300px;
+  }
+} 
+/* =================================================================
+artwork aw-popup-e
+======================================================================*/
+.aw-sam-e {
+  background-image: url(../img/buner-4.png);
+  width: 300px;
+  height: 300px;
+}
+
+.aw-window-img5 {
+  background-image: url(../img/buner-4.png);
+  background-size: 90%;
+  background-position: center;
+}
+
+.window-img{
+  width: 80%;
+}
+/* 
+/* =================================================================
+artwork aw-popup-f
+======================================================================*/
+.aw-sam-f {
+  background-image: url(../img/buner-5.png);
+  width: 300px;
+  height: 300px;
+}
+
+.aw-window-img6 {
+  background-image: url(../img/buner-5.png);
+  background-size: 90%;
+  background-position: center;
+}
+
+.window-img{
+  width: 80%;
+}
+/* 
+/* =================================================================
+movie work popup-a1
+======================================================================*/
+.sam-a1 {
+  background-image: url(../img/main_a1.png);
+
+}
+
+.window-img-a1 {
+  background-image: url(../img/main_a1.png);
+}
+
+
+
+/* 
