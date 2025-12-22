@@ -1,1079 +1,280 @@
 @charset "utf-8";
 
+/* =================================================================
+   FONTS & VARIABLES
+   ================================================================= */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Shippori+Mincho:wght@400;500&display=swap');
+
 :root {
-    font-size: 16px;
-    --main: #dedede;
-    --white: #fff;
-    --img: #dadada;
-    --font:#333;
+    --bg-color: #dedede;
+    --text-color: #333;
+    --card-bg: #fff;
+    --shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
-
-* {
-    cursor: url('../img/cursor-b-43.png'), auto;
-}
-
-html {
-    font-family: "Times New Roman", Georgia, serif;
-    font-weight: 400;
-    font-style: normal;
-    letter-spacing: 5px;
-    scroll-behavior: smooth;
-    word-break: keep-all;
-    text-align: center;
-    scroll-padding-top: 0px;
-
-}
-
 
 body {
-    max-width: 100vw;
-    height: auto;
-    /* height: 10000px; */
-    font-size: clamp(14px, 2vw, 16px);
-    margin: 0 auto;
-    color: #333;
-    background-color: var(--main);
-    overflow: hidden;
-    /* スクロールバーを非表示 */
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: "Shippori Mincho", serif;
+    margin: 0;
+    overflow: hidden; /* Main scroll handled by container */
 }
 
-a:hover {
-    color: #333;
-}
-
-/* ======================================================================
-横スクロール====================================================================== */
-
+/* =================================================================
+   SCROLL CONTAINER
+   ================================================================= */
 .scroll-container {
+    display: flex;
+    flex-direction: row;
     width: 100vw;
     height: 100vh;
-    overflow-x: hidden;
-    /* 標準のスクロールバーを非表示 */
-    white-space: nowrap;
-    position: relative;
-}
-
-.scroll-content {
-    display: flex;
-    transition: transform 0.3s ease-in-out;
-    /* スムーズなスクロール */
-}
-
-.h1-p{
-    display: inline-block;
-}
-
-/* sectionの基本 */
-/* .section {
-    min-width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
+    overflow-x: auto;
+    overflow-y: hidden;
+    /* scroll-behavior: smooth; REMOVED to prevent lag with JS wheel scroll */
     align-items: center;
-    background-color: #f0f0f0;
-    border-right: 1px solid #ccc;
-    color: #333;
-} */
-
-/* ======================================================================
-縦スクロール====================================================================== */
-
-.sp-scroll-box{
-    height: auto;
-    overflow-y: auto;
-    white-space: normal;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    box-sizing: border-box;
+    
+    /* Hide scrollbar */
+    scrollbar-width: none; 
+    -ms-overflow-style: none;
 }
-
-/* =================================================================
-アイコン
-======================================================================*/
-.home-icon {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    z-index: 80;
-}
-
-.home-icon img {
-    width: 50px;
-    height: auto;
-    position: relative;
-
-
-}
-
-.fukidashi {
+.scroll-container::-webkit-scrollbar {
     display: none;
-    width: fit-content;
-    font-size: 14px;
-    position: absolute;
-    bottom: 62px;
-    left: 2px;
-    padding: 10px;
-    border-radius: 15px;
-    background: #717171;
-    color: #fff;
-    font-weight: bold;
-}
-
-.fukidashi:after {
-    position: absolute;
-    width: 0;
-    height: 0;
-    left: 0;
-    bottom: -19px;
-    margin-left: 10px;
-    border: solid transparent;
-    border-color: rgba(51, 204, 153, 0);
-    border-top-color: #717171;
-    border-width: 10px;
-    pointer-events: none;
-    content: " ";
-}
-
-.homeicon:hover+.fukidashi {
-    display: block;
 }
 
 /* =================================================================
-header 
-======================================================================*/
-.line {
-    width: 400px;
+   SECTIONS & CARDS
+   ================================================================= */
+.gallery-section {
+    flex: 0 0 auto; /* Don't shrink */
+    padding: 0 4vw;
     height: 100%;
-    height: 2px;
-    background: var(--white);
-    transform: rotate(-50deg);
-    z-index: 21;
-
-    position: fixed;
-    top: 170px;
-    left: -35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-header {
-    max-width: 100%;
-    height: auto;
-    margin: 0 auto;
-
-    position: fixed;
-    z-index: 60;
-    top: 15px;
-    left: 0;
+.intro-section {
+    padding-right: 8vw;
 }
 
-.pc-menu nav {
-    width: 100%;
-    height: auto;
-}
-
-.pc-menu ul {
-    max-width: 100%;
-    height: auto;
+.intro-content h1 {
+    font-family: "Times New Roman", serif;
+    font-size: 6rem;
+    font-weight: 100;
     margin: 0;
+    color: #222;
+    opacity: 0; /* Fade in via CSS animation */
+    animation: simpleFadeIn 1s ease forwards 0.5s;
 }
 
-.pc-menu li {
-    font-size: 24px;
-    width: fit-content;
-    margin: 7px 0;
+.intro-content p {
+    margin-top: 20px;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    opacity: 0;
+    animation: simpleFadeIn 1s ease forwards 0.8s;
 }
 
-.pc-menu li::marker {
-    color: var(--white);
-}
-
-.pc-menu li a {
-    text-decoration: none;
-    color: var(--white);
-}
-
-.pc-menu li a:hover {
-    color: #000;
-}
-
-.pc-menu nav {
-    position: relative;
-}
-
-/* .sp-menu */
-
-.ham-btn {
-    display: none;
-    appearance: none;
-    background: none;
-    border: 0;
-}
-
-.sp-menu {
-    display: none;
-}
-
-.sp-menu ul {
-    padding: 0;
-    text-align: center;
-    margin: 100px auto;
-}
-
-.sp-menu li {
-    width: fit-content;
-    font-size: 16px;
-    list-style: none;
-    font-weight: bold;
-    margin: 0 auto;
-    line-height: 250%;
-}
-
-.sp-menu li a {
-    width: fit-content;
-    text-align: center;
-    text-decoration: none;
-    color: #333;
-    font-size: 16px;
-
-}
-
-.sp-menu li a:hover {
-    color: var(--white);
-    font-size: 14px;
-}
-
-.sp-menu.is-active {
-    opacity: 1;
-    visibility: visible;
-}
-
-@media screen and (max-width: 426px) {
-
-    .pc-menu,
-    .line {
-        display: none;
-    }
-
-    .sp-menu {
-        display: block;
-        width: 100%;
-        height: 100vh;
-        position: fixed;
-        top: 0;
-        left: 0;
-        background-color: rgba(255, 255, 255, 0.8);
-        z-index: -1;
-        opacity: 0;
-        transition: .4s;
-        /* ふわっと表示 */
-    }
-
-    .sp-menu.is-active {
-        z-index: 5;
-    }
-
-    .ham-btn {
-        display: block;
-        position: fixed;
-        right: 20px;
-        top: 20px;
-        z-index: 20;
-        width: 40px;
-        height: 40px;
-        border: none;
-    }
-
-    .ham-line {
-        display: block;
-        width: 100%;
-        height: 2px;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        background-color: #333;
-        transition: 0.4s;
-
-    }
-
-    .ham-line::before,
-    .ham-line::after {
-        content: "";
-        display: block;
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        background-color: #333;
-        transition: inherit;
-        z-index: 10;
-
-    }
-
-    .ham-line:before {
-        top: -9px;
-    }
-
-    .ham-line:after {
-        top: 9px;
-    }
-
-    .ham-btn.is-active .ham-line {
-        background-color: transparent;
-        z-index: 10;
-    }
-
-    .ham-btn.is-active .ham-line::before {
-        top: 0;
-        transform: rotate(45deg);
-        z-index: 10;
-
-    }
-
-    .ham-btn.is-active .ham-line::after {
-        top: 0;
-        transform: rotate(-45deg);
-        z-index: 10;
-
-    }
-
-    .is-active {
-        opacity: 100;
-    }
-
-
-}
-
-/* =================================================================
-main section
-======================================================================*/
-.top_section {
-    min-width: 100vw;
-    height: calc(100vh - 50px);
-    margin: 0 auto;
-    margin-right: 400px;
+.artwork-card {
+    background: var(--card-bg);
+    padding: 15px;
+    box-shadow: var(--shadow);
+    border-radius: 4px; /* Clean look */
+    max-height: 70vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    /* background-color: #f58080; */
-    /* border-right: 1px solid #ccc; */
-
-    position: relative;
-    top: 10%;
+    
+    /* Performance & Reliability */
+    /* DEFAULT: Visible (Safe fallback) */
+    opacity: 1; 
+    transform: none;
+    transition: opacity 0.5s ease;
 }
 
-.top_section p {
-    margin: 0;
-
-    position: absolute;
-    bottom: 20%;
-    right: 100px;
-
-}
-
-.top_section .h1-2{
-    position: absolute;
-    bottom: 10%;
-    right: 100px;
-}
-
-
-
-.top_section h1 {
-    color: transparent;
-    -webkit-text-stroke: 1.5px #333;
-    margin: 0;
-
-    font-size: 150px;
-    position: absolute;
-    top: 40px;
-    left: 280px;
-}
-
-/* =================================================================
-section 2
-======================================================================*/
-.section_2 {
-    min-width: 100vw;
-    height: calc(100vh - 50px);
-    margin: 0 auto;
-    margin-right: 400px;
-
-    display: flex;
-    align-items: baseline;
-    justify-content: center;
-    padding-top: 25px;
-}
-
-.section_2 p {
-    text-align: left;
-    width: fit-content;
-    font-size: clamp(14px, 3vw, 16px);
-}
-
-
-.parent {
-    width: 100%;
-    height: calc(100vh - 60px);
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(4, 1fr);
-    gap: 20px;
-}
-
-.div1 {
-    grid-column: span 2 / span 2;
-    grid-row: span 4 / span 4;
-    grid-column-start: 3;
-    grid-row-start: 1;
-    background-image: url(../img/main_07.jpg);
-    background-position: center;
-    background-size: cover;
-
-    box-shadow: 0 4px 9px rgba(0, 0, 0, 0.5);
-
-}
-
-.div2 {
-    grid-column: span 2 / span 2;
-    grid-row: span 3 / span 3;
-    grid-column-start: 1;
-    grid-row-start: 1;
-    background-image: url(../img/main_01.jpg);
-    background-position: center;
-    background-size: cover;
-
-    box-shadow: 0 4px 9px rgba(0, 0, 0, 0.5);
-
-
-}
-
-.div3 {
-    width: 100%;
-    grid-column: span 2 / span 2;
-    grid-row-start: 4;
-}
-
-.mb_section2 {
-    display: none;
-}
-
-/* =================================================================
-section 3
-======================================================================*/
-.section_3 {
-    min-width: 100vw;
-    height: calc(100vh - 50px);
-    margin: 0 auto;
-    margin-right: px;
-    display: flex;
-    align-items: baseline;
-    justify-content: center;
-    padding-top: 25px;
-
-    position: relative;
-}
-
-.imgbox_3_1 {
-    display: flex;
-
-    position: absolute;
-
-    left: 0;
-}
-
-
-.div4 {
-    width: 200px;
-    height: 200px;
-    background-image: url(../img/grid2.jpg);
-    background-position: center;
-    background-size: cover;
-    margin: 0 10px;
-    box-shadow: 0 4px 9px rgba(0, 0, 0, 0.5);
-}
-
-.div5 {
-    width: 200px;
-    height: 200px;
-    background-image: url(../img/main_08.jpg);
-    background-position: center;
-    background-size: cover;
-    margin: 0 10px;
-    box-shadow: 0 4px 9px rgba(0, 0, 0, 0.5);
-
-}
-
-.div6 {
-    width: 200px;
-    height: 200px;
-    background-image: url(../img/main_09.jpg);
-    background-position: center;
-    background-size: cover;
-    margin: 0 10px;
-    box-shadow: 0 4px 9px rgba(0, 0, 0, 0.5);
-
-
-}
-
-.imgbox_3_2 {
-    display: flex;
-
-    position: absolute;
-    bottom: 10px;
-}
-
-.div7 {
-    width: 200px;
-    height: 200px;
-    background-image: url(../img/main_10.jpg);
-    background-position: center;
-    background-size: cover;
-    margin: 0 10px;
-    box-shadow: 0 4px 9px rgba(0, 0, 0, 0.5);
-
-}
-
-.div8 {
-    width: 200px;
-    height: 200px;
-    background-image: url(../img/main_11.jpg);
-    background-position: center;
-    background-size: cover;
-    margin: 0 10px;
-    box-shadow: 0 4px 9px rgba(0, 0, 0, 0.5);
-
-}
-
-.section_3 p {
-    position: absolute;
-    margin: 0;
-    bottom: 50%;
-    right: 50%;
-}
-
-
-
-/* =================================================================
-section 4
-======================================================================*/
-/* sectionの基本  */
-.section_4 {
-    min-width: 100vw;
-    height: calc(100vh - 50px);
-    margin: 0 auto;
-    /* margin-right: 400px; */
-    padding-top: 25px;
-    padding-bottom: 15px;
-    position: relative;
-}
-
-.section_4_imgbox {
-    min-width: 100%;
-    height: calc(100vh - 50px);
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-}
-
-
-.section_4 p {
-    width: fit-content;
-    position: absolute;
-    z-index: 5;
-    font-size: 72px;
-    margin: 0;
-    color: transparent;
-    -webkit-text-stroke: 1px #333;
-    margin: 0;
-    top: 0;
-
-}
-
-.zoomInText {
-    /*テキストの基点となる位置を定義*/
-    position: relative;
-    width: 80%;
-    height: auto;
-    aspect-ratio: 4/3;
-}
-
-.zoomInText span.mask {
-    position: relative;
-    transition: .3s ease-in-out;
-    /*移り変わる速さを変更したい場合はこの数値を変更*/
-    display: block;
-    /*画像をくくるspanタグをブロック要素にする*/
-    overflow: hidden;
-    /*拡大してはみ出る要素を隠す*/
-    margin: 0 auto;
-}
-
-.zoomInText:hover span.mask::before {
-    /*hoverした時の変化*/
-    content: "";
-    position: absolute;
-    z-index: 2;
-    top: 10px;
-    left: 10px;
-    width: calc(100% - 20px);
-    height: calc(100% - 20px);
-    background: rgba(0, 0, 0, 0.5);
-    /*背景色*/
-    display: block;
-    margin: 0 auto;
-}
-
-.zoomInText img {
-    max-width: 100%;
-    min-width: 180px;
-    margin: 0 auto;
-    transform: scale(1);
-    filter: blur(0);
-    transition: .3s ease-in-out;
-    /*移り変わる速さを変更したい場合はこの数値を変更*/
-    display: block;
-    margin: 10px;
-
-    box-shadow: 0 4px 9px rgba(0, 0, 0, 0.5);
-
-}
-
-.zoomInText:hover img {
-    /*hoverした時の変化*/
-    transform: scale(1.2);
-    /*拡大の値を変更したい場合はこの数値を変更*/
-    filter: blur(2px);
-    /*ぼかし具合を変更したい場合はこの数値を変更*/
-}
-
-.zoomInText span.cap {
+/* JS adds this class to prepare animation */
+.artwork-card.waiting {
     opacity: 0;
-    transition: .5s ease-in-out;
-    /*移り変わる速さを変更したい場合はこの数値を変更*/
-    position: absolute;
-    z-index: 3;
-    /*テキストを前面に出す*/
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #fff;
-    /*テキストの色を変えたい場合はここを修正*/
-    line-height: 1.5;
-    /*行の高さを1.5にする*/
-    font-size: clamp(14px, 1vw, 24px);
-    word-break: keep-all;
-    text-align: center;
+    transform: scale(0.9) translateY(20px);
 }
 
-.zoomInText:hover span.cap {
-    /*hoverした時の変化*/
+/* JS switches to this class to trigger animation */
+.artwork-card.visible {
     opacity: 1;
+    transform: none;
+    animation: blobReveal 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 }
 
-.zoomInText_01 {
-    top: -10%;
-}
-
-.zoomInText_02 {
-    bottom: -25%;
-}
-
-.zoomInText_03 {
-    top: -10%;
-}
-
-.zoomInText_04 {
-    bottom: -25%;
-}
-
-
-
-/* =================================================================
-マウス
-======================================================================*/
-#stalker {
-    pointer-events: none;
-    position: fixed;
-    top: -8px;
-    /* //座標調節（カーソル位置と円の中心を合わせる） */
-    left: -8px;
-    /* //座標調節（カーソル位置と円の中心を合わせる） */
-    width: 40px;
-    /* //マウスストーカーの直径 */
-    height: 40px;
-    /* //マウスストーカーの直径 */
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: 50%;
-    transform: translate(0, 0);
-    transition: transform 0.2s;
-    /* //ちょっと遅れてついてくるように */
-    transition-timing-function: ease-out;
-    z-index: 998;
-
-    &.hov_ {
-        top: -32px;
-        left: -32px;
-        width: 64px;
-        height: 64px;
-        transition: .5s;
-        background: rgb(255, 255, 255, 0.5);
+/* Liquid Blob to Square Animation */
+@keyframes blobReveal {
+    0% {
+        opacity: 0;
+        transform: scale(0.8) translateY(30px);
+        border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; /* Blob shape */
+    }
+    40% {
+        opacity: 1;
+        border-radius: 20% 80% 30% 70% / 60% 30% 70% 40%; /* Morphs */
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+        border-radius: 4px; /* Final Square */
     }
 }
 
-/* =================================================================
-ローディング
-======================================================================*/
-/* Loading背景画面設定　*/
-#splash {
-    /*fixedで全面に固定*/
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    z-index: 999;
-    text-align: center;
-    color: #fff;
+/* Optional: JS can add 'hidden' class to fade them OUT if off-screen, 
+   but for now let's keep them visible to ensure they appear. */
+.artwork-card.hidden {
+    opacity: 0;
 }
 
-/* Loading画像中央配置　*/
-#splash_text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    z-index: 999;
-    transform: translate(-50%, -50%);
-    color: #fff;
-    width: 100%;
+/* Fallback: if JS fails, show anyway? 
+   Ideally JS is reliable, but to be safe we can use animation-delay or just trust the observer.
+   Let's trust the reliable new JS. */
+
+.artwork-card img {
+    max-height: 50vh; /* Limit height to fit screen */
+    width: auto;
+    max-width: 100%;
+    display: block;
+    border-radius: 2px;
 }
 
-/*IE11対策用バーの線の高さ※対応しなければ削除してください*/
-#splash_text svg {
-    height: 2px;
+.artwork-card .caption {
+    margin-top: 15px;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1rem;
+    color: #666;
 }
 
-/*割れる画面のアニメーション*/
-.loader_cover {
-    width: 100%;
-    height: 50%;
-    background-color: #333;
-    transition: all .2s cubic-bezier(.04, .435, .315, .9);
-    transform: scaleY(1);
+.artwork-card.no-border {
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
 }
 
-/*上の画面*/
-.loader_cover-up {
-    transform-origin: center top;
+.no-border p {
+    font-size: 1.2rem;
+    line-height: 2;
+    text-align: left;
 }
 
-/*下の画面*/
-.loader_cover-down {
-    position: absolute;
-    bottom: 0;
-    transform-origin: center bottom;
-}
-
-/*クラス名がついたらY軸方向に0*/
-.coveranime {
-    transform: scaleY(0);
-}
 
 /* =================================================================
-レスポンシブ
-======================================================================*/
+   SIMPLE KEYFRAMES (Lightweight)
+   ================================================================= */
+@keyframes simpleFadeIn {
+    to { opacity: 1; }
+}
 
-@media screen and (max-width : 1280px) {
+
+/* Click Interaction: Jelly Bounce */
+.artwork-card.blob-click {
+    animation: jellyBounce 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@keyframes jellyBounce {
+    0% { transform: scale(1); border-radius: 4px; }
+    30% { transform: scale(0.95, 1.05); border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+    50% { transform: scale(1.05, 0.95); border-radius: 20% 80% 30% 70% / 60% 30% 70% 40%; }
+    70% { transform: scale(0.98, 1.02); border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+    100% { transform: scale(1); border-radius: 4px; }
+}
+@media screen and (max-width: 768px) {
     body {
-        height: auto;
-        overflow: auto;
+        overflow-x: hidden;
         overflow-y: auto;
-        margin: 0 auto;
-    }
-
-    main {
-        max-width: 90%;
-        height: auto;
-        margin: 0 auto;
-    }
-
-    .h1-2{
-        display: none;
-    }
-
-    .home-icon {
-        top: 20px;
-        left: auto;
-        right: 20px;
-    }
-
-    .fukidashi {
-        top: 54px;
-        bottom: auto;
-        left: auto;
-        right: -10px;
-    }
-
-    .fukidashi:after {
-        left: 0;
-        bottom: 40px;
-        margin-left: 90px;
-        border-bottom-color:  #717171;
-        border-top-color:transparent;
     }
 
     .scroll-container {
+        flex-direction: column;
         width: 100%;
         height: auto;
-        margin: 0 auto;
-        position: initial;
+        overflow-x: hidden;
+        overflow-y: visible;
+        padding: 80px 20px;
+        align-items: stretch;
     }
-
-    .top_section {
-        min-width: 100%;
-        margin-right: 0;
-        margin: 0 auto;
-
-    }
-
-    .scroll-content {
+    
+    .gallery-section {
+        padding: 40px 0;
         height: auto;
-        display: block;
-        flex-direction: column;
-        margin: 0 auto;
-    }
-
-    .top_section p {
-        margin: 0;
-        position: initial;
-    }
-
-    .top_section h1 {
-        margin: 0 auto;
-        color: transparent;
-        -webkit-text-stroke: 1.5px #333;
-        margin: 0;
-
-        font-size: clamp(40px, 12vw, 150px);
-        position: initial;
-    }
-
-    .section_2 {
-        display: none;
-    }
-
-    .mb_section2 {
-        max-width: 90vw;
-        height: auto;
-        margin: 0 auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-bottom: 100px;
-    }
-
-    .mb_section2 img {
-        width: 90%;
-        height: auto;
-        margin-bottom: 30px;
-    }
-
-    .mb_section2 p {
-        width: fit-content;
-        text-align: center;
-        line-height: 30px;
-    }
-
-    .section_3 {
-        max-width: 100vw;
-        height: auto;
-        margin: 0 auto;
-        display: initial;
-        padding-top: 0px;
-
-
-
-        position: initial;
-    }
-
-    .imgbox_3_1 {
-        display: flex;
-        justify-content: space-around;
-        position: initial;
-        margin-top: 400px;
-    }
-
-    .imgbox_3_2 {
-        display: flex;
-        justify-content: space-around;
-
-        position: initial;
-        margin: 0 auto;
-    }
-
-    .section_3 p {
-        position: initial;
-        margin: 100px;
-        display: flex;
         justify-content: center;
-
     }
-
-    .section_4 {
-        min-width: 100%;
-        margin-right: 0px;
-        padding-top: 0px;
-        margin-top: 400px;
-        position: initial;
-
-        display: flex;
-        flex-direction: column;
-    }
-
-    .section_4_imgbox {
-        width: 100%;
-        height: auto;
-        position: initial;
-        display: flex;
-        flex-direction: column;
-        padding-bottom: 50px;
-
-
-    }
-
-    .section_4 p {
-        position: initial;
-
-    }
-
-    .zoomInText_01 {
-        top: 0;
-    }
-
-    .zoomInText_02 {
-        bottom: 0;
-    }
-
-    .zoomInText_03 {
-        top: 0;
-    }
-
-    .zoomInText_04 {
-        bottom: 0;
-    }
-
-    .last_section {
-        min-width: 100vw;
-        height: 400px;
-        margin: 0 auto;
-        overflow: hidden;
-    }
-
-    /* =================================================================
-top ボタン
-======================================================================*/
-
-    /* トップへ戻るボタンのデザイン */
-
-    #back-to-top {
-        position: fixed;
-        bottom: 20px;
-        left: 20px;
-        width: 60px;
-        height: 60px;
-        background-color: #333;
-        color: white;
-        border: none;
-        /* border-radius: 50%; */
-        font-size: 16px;
-        text-decoration: none;
-        display: flex;
-        /* 中央揃えのためにフレックスボックスを使用 */
-        justify-content: center;
-        /* 水平方向の中央揃え */
-        align-items: center;
-        /* 垂直方向の中央揃え */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        transition: background-color 0.3s ease;
-
-        z-index: 888;
-    }
-
-
-    #back-to-top:hover {
-        background-color: #555;
-    }
-
-}
-
-@media screen and (max-width : 769px) {
-
-
-
-    .section_3 {
-        max-width: 100vw;
-        height: auto;
-        margin: 0 auto;
-        display: initial;
-        margin-bottom: 400px;
-
-
-    }
-
-    .imgbox_3_1 {
-        margin-top: 0%;
-    }
-
-
-    .imgbox_3_1,
-    .imgbox_3_2 {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-    }
-
-    .div4,
-    .div5,
-    .div6,
-    .div7,
-    .div8 {
-        margin: 10px;
-    }
-
-    .top_section p {
-        word-break: keep-all;
+    
+    .intro-content h1 {
+        font-size: 4rem;
         text-align: center;
     }
-
-    .section_3 p {
-        word-break: keep-all;
-        text-align: center;
-    }
-
-}
-
-
-@media screen and (max-width : 426px) {
+    
     .home-icon {
-        top: auto;
-        left: auto;
-        right: 20px;
+        background: rgba(255,255,255,0.8);
+        border-radius: 50%;
+        padding: 5px;
     }
-
-    .fukidashi {
-
-        top: auto;
-        bottom: 60px;
-        left: auto;
-        right: -10px;
+    
+    .artwork-card {
+        width: 100%;
+        max-width: 100%;
+        opacity: 1; /* Always visible on mobile to avoid scroll sync issues */
+        transform: none;
     }
-
-    .fukidashi:after {
-        top: auto;
-        left: 80px;
-        bottom: -8px;
-        margin-left: 90px;
-
-        margin-left: 10px;
-        border-bottom: transparent;
-        border-top-color: #717171;
-
+    
+    .artwork-card img {
+        max-height: none;
+        width: 100%;
     }
+}
 
+/* =================================================================
+   HOME ICON (Restored & Fixed)
+   ================================================================= */
+.home-icon {
+    position: fixed;
+    top: 20px;  /* Top aligned */
+    right: 20px; /* Right aligned - Out of the way */
+    z-index: 9999;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+    background: rgba(255,255,255,0.8); /* Background to ensure visibility */
+    border-radius: 50%;
+    padding: 10px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.home-icon:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.home-icon img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.fukidashi {
+    display: none; /* Hide hover text to be cleaner? Or position it better */
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background: #333;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.home-icon:hover .fukidashi {
+    display: block;
 }

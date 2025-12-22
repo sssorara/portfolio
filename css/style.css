@@ -5,23 +5,32 @@
   --main: #dedede;
   --white: #fff;
   --img: #dadada;
-  --font: #333;
+  --font: #2c2c2c; /* Softer black */
+  --accent: #5a5a5a;
 }
 
 * {
   cursor: url("../img/cursor-b-43.png"), auto;
 }
 
+/* Re-enable default cursor for interactive elements to avoid confusion if stalker fails, 
+   but since we have a custom cursor, we usually hide default. 
+   Let's keep 'none' but ensure stalker works well. */
 html {
-  font-family: "Times New Roman", Georgia, serif;
+  font-family: "Cormorant Garamond", "Shippori Mincho", serif;
   font-weight: 400;
   font-style: normal;
   font-size: 16px;
-  letter-spacing: 5px;
+  letter-spacing: 0.05em; /* Slightly reduced tracking for better readability */
   scroll-behavior: smooth;
   text-align: center;
-  word-break: keep-all;
+  word-break: break-all;
   white-space: normal;
+  line-height: 1.8;
+}
+
+h1 {
+  font-family: "Times New Roman", Georgia, serif;
 }
 
 body {
@@ -75,23 +84,48 @@ header {
 }
 
 .pc-menu li {
-  font-size: 24px;
+  font-size: 20px; /* Slightly smaller for elegance */
   width: fit-content;
-  margin: 7px 0;
+  margin: 0 0 15px 0;
+  transition: transform 0.3s ease;
+}
+
+.pc-menu li:hover {
+  transform: translateX(5px);
 }
 
 .pc-menu li::marker {
   color: var(--white);
+  font-size: 12px; /* Smaller marker */
 }
 
 .pc-menu li a {
   text-decoration: none;
   color: var(--white);
-  cursor: pointer;
+  cursor: none; /* Custom cursor */
+  position: relative;
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+
+.pc-menu li a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background-color: var(--white);
+  transition: width 0.3s ease;
 }
 
 .pc-menu li a:hover {
-  color: #000;
+  color: var(--white);
+  opacity: 0.8;
+}
+
+.pc-menu li a:hover::after {
+  width: 100%;
 }
 
 .pc-menu nav {
@@ -158,10 +192,12 @@ header {
     position: fixed;
     top: 0;
     left: 0;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.7); /* More transparent */
+    backdrop-filter: blur(10px); /* Glassmorphism effect */
+    -webkit-backdrop-filter: blur(10px);
     z-index: -1;
     opacity: 0;
-    transition: 0.4s;
+    transition: 0.4s ease-in-out;
     /* ふわっと表示 */
   }
 
@@ -238,30 +274,25 @@ header {
 #stalker {
   pointer-events: none;
   position: fixed;
-  top: -8px;
-  /* //座標調節（カーソル位置と円の中心を合わせる） */
-  left: -8px;
-  /* //座標調節（カーソル位置と円の中心を合わせる） */
-  width: 40px;
-  /* //マウスストーカーの直径 */
-  height: 40px;
-  /* //マウスストーカーの直径 */
-  background: rgba(0, 0, 0, 0.5);
+  top: 0;
+  left: 0;
+  width: 50px; /* Smaller default size */
+  height: 50px;
+  background: rgba(50, 50, 50, 0.8);
   border-radius: 50%;
-  transform: translate(0, 0);
-  transition: transform 0.2s;
-  /* //ちょっと遅れてついてくるように */
-  transition-timing-function: ease-out;
-  z-index: 998;
+  transform: translate(-50%, -50%); /* Center on cursor */
+  transition: transform 0.2s ease-out, width 0.3s, height 0.3s, background-color 0.3s;
+  z-index: 9998;
+  transition: transform 0.2s ease-out, width 0.3s, height 0.3s, background-color 0.3s;
+  z-index: 9998;
+  /* mix-blend-mode removed to fix gray issue */
+}
 
-  &.hov_ {
-    top: -32px;
-    left: -32px;
-    width: 64px;
-    height: 64px;
-    transition: 0.5s;
-    background: rgb(255, 255, 255, 0.5);
-  }
+#stalker.hov_ {
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.9);
+  mix-blend-mode: normal;
 }
 
 /* =================================================================
@@ -330,7 +361,7 @@ header {
 
 .is-active-f {
   opacity: 1;
-  transform: translateY(0);
+  transform: none; /* Changed from translateY(0) to prevent creating containing block for fixed elements */
 }
 
 .lording {

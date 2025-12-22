@@ -163,6 +163,7 @@ input {
   margin: auto;
   width: 80%;
   overflow-y: scroll;
+  overflow-x: hidden; /* 横スクロールバーを非表示 */
   z-index: 500;
   box-shadow: 0 0 0px 999px rgba(0, 0, 0, 0.5);
 }
@@ -178,6 +179,7 @@ input {
   top: 0;
   background-color: inherit;
   width: 100%;
+  box-sizing: border-box; /* paddingを含めた幅にする */
   z-index: 100;
 }
 
@@ -215,6 +217,12 @@ input {
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.7);
   margin-left: 40px;
   margin-right: 40px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.img-box:hover {
+  transform: scale(1.05) translateY(-5px);
+  box-shadow: 5px 15px 25px rgba(0, 0, 0, 0.4);
 }
 
 .site-name {
@@ -304,12 +312,6 @@ strong {
   .img-box {
     margin-left: 10px;
     margin-right: 10px;
-  }
-
-  .sam-a,
-  .sam-b,
-  .sam-c,
-  .sam-d {
     width: 300px;
     height: 300px;
     max-width: 100%;
@@ -390,6 +392,69 @@ popup-d
     padding-left: 20px;
   }
 }
+/* =================================================================
+popup-e
+======================================================================*/
+
+.sam-e {
+  background-image: url(../img/sam-e.png);
+  background-position: top;
+}
+
+.window-img5 {
+  background-image: url(../img/mockup-e.png);
+  color: rgba(0, 0, 0, 0.5);
+  box-shadow: 5px 5px 5px;
+  background-position: center -30px;
+}
+
+@media screen and (max-width: 769px) {
+  .content-txt {
+    padding-left: 20px;
+  }
+}
+/* =================================================================
+popup-f
+======================================================================*/
+
+.sam-f {
+  background-image: url(../img/sam-f.png);
+  background-position: top;
+}
+
+.window-img6 {
+  background-image: url(../img/mockup-f.png);
+  color: rgba(0, 0, 0, 0.5);
+  box-shadow: 5px 5px 5px;
+  background-position: center -30px;
+}
+
+@media screen and (max-width: 769px) {
+  .content-txt {
+    padding-left: 20px;
+  }
+}
+/* =================================================================
+popup-g
+======================================================================*/
+
+.sam-g {
+  background-image: url(../img/sam-g.png);
+  background-position: top;
+}
+
+.window-img7 {
+  background-image: url(../img/mockup-g.png);
+  color: rgba(0, 0, 0, 0.5);
+  box-shadow: 5px 5px 5px;
+  background-position: center -30px;
+}
+
+@media screen and (max-width: 769px) {
+  .content-txt {
+    padding-left: 20px;
+  }
+}
 
 /* =================================================================
 artwork
@@ -408,7 +473,7 @@ artwork aw-popup-a
   height: 300px;
 }
 
-.aw-window-img1 {
+.window-img.aw-window-img1 {
   background-image: url(../img/buner-1.jpg);
   width: 50%;
   height: 100%;
@@ -423,7 +488,7 @@ artwork aw-popup-b
   height: 300px;
 }
 
-.aw-window-img2 {
+.window-img.aw-window-img2 {
   background-image: url(../img/buner-2.jpg);
   width: 50%;
   height: 100%;
@@ -437,7 +502,7 @@ artwork aw-popup-c
   height: 300px;
 }
 
-.aw-window-img3 {
+.window-img.aw-window-img3 {
   background-image: url(../img/buner-3.jpg);
   background-size: 90%;
   background-position: center;
@@ -451,7 +516,7 @@ artwork aw-popup-d
   height: 300px;
 }
 
-.aw-window-img4 {
+.window-img.aw-window-img4 {
   background-image: url(../img/art-1.jpg);
   width: 50%;
   height: 100%;
@@ -467,15 +532,13 @@ artwork aw-popup-e
   height: 300px;
 }
 
-.aw-window-img5 {
+.window-img.aw-window-img5 {
   background-image: url(../img/buner-4.png);
-  background-size: 90%;
+  background-size: 80%;
   background-position: center;
 }
 
-.window-img{
-  width: 80%;
-}
+
 /* 
 /* =================================================================
 artwork aw-popup-f
@@ -486,15 +549,12 @@ artwork aw-popup-f
   height: 300px;
 }
 
-.aw-window-img6 {
+.window-img.aw-window-img6 {
   background-image: url(../img/buner-5.png);
-  background-size: 90%;
+  background-size: 80%;
   background-position: center;
 }
 
-.window-img{
-  width: 80%;
-}
 /* 
 /* =================================================================
 movie work popup-a1
