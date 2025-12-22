@@ -25,6 +25,10 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Shippori+Mincho:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
     <!-- <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet"> -->
   </head>
 
@@ -68,18 +72,23 @@
     </div>
     <main>
       <div class="mainvisual">
+        <!-- Three.jsで描画するため、既存のCSSアニメーション画像は無効化 -->
+        <!-- 
         <div class="main_img"></div>
         <div class="main_img"></div>
         <div class="main_img"></div>
         <div class="main_img"></div>
         <div class="main_img"></div>
         <div class="main_img"></div>
+         -->
         <img src="img/logo_metarice.png" alt="メイン画像" width="80%" />
         <div class="filter"></div>
       </div>
     </main>
     <!-- マウスストーカー -->
     <div id="stalker"></div>
+
+    <!-- 旧背景コンテナは削除 -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script
@@ -88,6 +97,12 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://rawgit.com/kimmobrunfeldt/progressbar.js/master/dist/progressbar.min.js"></script>
+    
+    <!-- Three.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- Custom Three.js Animation -->
+    <script src="js/three-animation.js"></script>
+    
     <script src="js/main.js"></script>
   </body>
 </html>
