@@ -10,8 +10,7 @@ let hovFlag = false;
 // マウスに追従させる処理 （リンクに吸い付いてる時は除外する）
 document.addEventListener("mousemove", function (e) {
   if (!hovFlag) {
-    stalker.style.transform =
-      "translate(" + e.clientX + "px, " + e.clientY + "px)";
+    stalker.style.transform = "translate(" + e.clientX + "px, " + e.clientY + "px) translate(-50%, -50%)";
   }
 });
 
@@ -37,7 +36,8 @@ linkElem.forEach((link, i) => {
     let posX = rect.left + rect.width / 2;
     let posY = rect.top + rect.height / 2;
 
-    stalker.style.transform = "translate(" + posX + "px, " + posY + "px)";
+    stalker.style.transform =
+      "translate(" + posX + "px, " + posY + "px) translate(-50%, -50%)";
   });
 
   // マウスホバー解除時
@@ -56,18 +56,18 @@ $("main").on("mouseenter", function () {
 
 // mainタグから出たときに元の色に戻す
 $("main").on("mouseleave", function () {
-  $("#stalker").css("background-color", "rgba(0, 0, 0, 0.5)"); // 元の黒色に戻す
+  $("#stalker").css("background-color", ""); // CSS定義に戻す
 });
 // ============================================================
 // PROFILEタグに入ったら黒色に変更
 // ============================================================
 $(".PROFILE").on("mouseenter", function () {
-  $("#stalker").css("background-color", "rgba(0, 0, 0, 0.5)"); //黒に変更
+  $("#stalker").css("background-color", "rgba(255, 255, 255, 0.8)"); // 背景が暗いため白に変更
 });
 
 // mainタグから出たときに元の色に戻す
 $(".PROFILE").on("mouseleave", function () {
-  $("#stalker").css("background-color", "rgba(255, 255, 255, 0.5)"); // 元白色に戻す
+  $("#stalker").css("background-color", ""); // 元に戻す
 });
 
 // ================================================================
