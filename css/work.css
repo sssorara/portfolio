@@ -44,43 +44,37 @@ h1 {
 @-webkit-keyframes h1 {
   from {
     -webkit-animation-timing-function: ease-in-out;
-    -webkit-transform: translate(0px, 0px) scale(1, 1) rotate(0deg)
-      skew(0deg, 0deg);
+    -webkit-transform: translate(0px, 0px) scale(1, 1) rotate(0deg) skew(0deg, 0deg);
     opacity: 1;
   }
 
   to {
     -webkit-animation-timing-function: linear;
-    -webkit-transform: translate(0px, 0px) scale(1, 1) rotate(0deg)
-      skew(0deg, 0deg);
+    -webkit-transform: translate(0px, 0px) scale(1, 1) rotate(0deg) skew(0deg, 0deg);
     opacity: 1;
   }
 
   10% {
     -webkit-animation-timing-function: ease-in-out;
-    -webkit-transform: translate(0px, 0px) scale(1, 1) rotate(0deg)
-      skew(0deg, 0deg);
+    -webkit-transform: translate(0px, 0px) scale(1, 1) rotate(0deg) skew(0deg, 0deg);
     opacity: 0;
   }
 
   20% {
     -webkit-animation-timing-function: ease-in-out;
-    -webkit-transform: translate(0px, 0px) scale(1, 1) rotate(0deg)
-      skew(0deg, 0deg);
+    -webkit-transform: translate(0px, 0px) scale(1, 1) rotate(0deg) skew(0deg, 0deg);
     opacity: 1;
   }
 
   30% {
     -webkit-animation-timing-function: ease-in-out;
-    -webkit-transform: translate(0px, 0px) scale(1, 1) rotate(0deg)
-      skew(0deg, 0deg);
+    -webkit-transform: translate(0px, 0px) scale(1, 1) rotate(0deg) skew(0deg, 0deg);
     opacity: 0;
   }
 
   60% {
     -webkit-animation-timing-function: linear;
-    -webkit-transform: translate(0px, 80px) scale(1, 1) rotate(0deg)
-      skew(0deg, 0deg);
+    -webkit-transform: translate(0px, 80px) scale(1, 1) rotate(0deg) skew(0deg, 0deg);
     opacity: 0;
   }
 }
@@ -163,7 +157,8 @@ input {
   margin: auto;
   width: 80%;
   overflow-y: scroll;
-  overflow-x: hidden; /* 横スクロールバーを非表示 */
+  overflow-x: hidden;
+  /* 横スクロールバーを非表示 */
   z-index: 500;
   box-shadow: 0 0 0px 999px rgba(0, 0, 0, 0.5);
 }
@@ -179,16 +174,17 @@ input {
   top: 0;
   background-color: inherit;
   width: 100%;
-  box-sizing: border-box; /* paddingを含めた幅にする */
+  box-sizing: border-box;
+  /* paddingを含めた幅にする */
   z-index: 100;
 }
 
-.popup:checked ~ .overlay {
+.popup:checked~.overlay {
   visibility: visible;
   opacity: 1;
 }
 
-.popup:checked ~ .overlay .window {
+.popup:checked~.overlay .window {
   animation: fadein 500ms forwards;
   animation-timing-function: ease-in-out;
 }
@@ -318,7 +314,7 @@ strong {
     height: auto;
     aspect-ratio: 1/1;
   }
-} 
+}
 
 /* =================================================================
 popup-a
@@ -373,6 +369,7 @@ popup-c
     padding-left: 20px;
   }
 }
+
 /* =================================================================
 popup-d
 ======================================================================*/
@@ -392,6 +389,7 @@ popup-d
     padding-left: 20px;
   }
 }
+
 /* =================================================================
 popup-e
 ======================================================================*/
@@ -413,6 +411,7 @@ popup-e
     padding-left: 20px;
   }
 }
+
 /* =================================================================
 popup-f
 ======================================================================*/
@@ -434,6 +433,7 @@ popup-f
     padding-left: 20px;
   }
 }
+
 /* =================================================================
 popup-g
 ======================================================================*/
@@ -457,11 +457,34 @@ popup-g
 }
 
 /* =================================================================
+popup-h
+======================================================================*/
+
+.sam-h {
+  background-image: url(../img/sam-h.png);
+  background-position: top;
+}
+
+.window-img8 {
+  background-image: url(../img/mockup-h.png);
+  color: rgba(0, 0, 0, 0.5);
+  box-shadow: 5px 5px 5px;
+  background-position: center -30px;
+}
+
+@media screen and (max-width: 769px) {
+  .content-txt {
+    padding-left: 20px;
+  }
+}
+
+/* =================================================================
 artwork
 ======================================================================*/
 #artwork-popup {
   padding-top: 200px;
 }
+
 /* =================================================================
 artwork aw-popup-a
 ======================================================================*/
@@ -478,6 +501,7 @@ artwork aw-popup-a
   width: 50%;
   height: 100%;
 }
+
 /* =================================================================
 artwork aw-popup-b
 ======================================================================*/
@@ -493,6 +517,7 @@ artwork aw-popup-b
   width: 50%;
   height: 100%;
 }
+
 /* =================================================================
 artwork aw-popup-c
 ======================================================================*/
@@ -507,6 +532,7 @@ artwork aw-popup-c
   background-size: 90%;
   background-position: center;
 }
+
 /* =================================================================
 artwork aw-popup-d
 ======================================================================*/
@@ -567,6 +593,7 @@ movie work popup-a1
 .window-img-a1 {
   background-image: url(../img/main_a1.png);
 }
+
 @media screen and (max-width: 425px) {
   .img-box {
     margin-left: 10px;
@@ -580,7 +607,7 @@ movie work popup-a1
     height: auto;
     aspect-ratio: 1/1;
   }
-} 
+}
 
 
 /* 
